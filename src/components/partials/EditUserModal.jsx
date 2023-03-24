@@ -1,4 +1,7 @@
-function EditUserModal() {
+import { useState } from "react";
+
+function EditUserModal({ user }) {
+  console.log(user);
   return (
     <div
       id="editUserModal"
@@ -47,9 +50,8 @@ function EditUserModal() {
                 <input
                   type="text"
                   name="first-name"
-                  id="first-name"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Bonnie"
+                  placeholder="{`${}`}"
                   required=""
                 />
               </div>
@@ -63,9 +65,8 @@ function EditUserModal() {
                 <input
                   type="text"
                   name="last-name"
-                  id="last-name"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Green"
+                  placeholder="{`${newUser}`}"
                   required=""
                 />
               </div>
@@ -79,7 +80,6 @@ function EditUserModal() {
                 <input
                   type="email"
                   name="email"
-                  id="email"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="example@company.com"
                   required=""
@@ -95,7 +95,6 @@ function EditUserModal() {
                 <input
                   type="number"
                   name="phone-number"
-                  id="phone-number"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="e.g. +(12)3456 789"
                   required=""
@@ -111,7 +110,6 @@ function EditUserModal() {
                 <input
                   type="text"
                   name="department"
-                  id="department"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Development"
                   required=""
@@ -127,7 +125,6 @@ function EditUserModal() {
                 <input
                   type="number"
                   name="company"
-                  id="company"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="123456"
                   required=""
@@ -143,7 +140,6 @@ function EditUserModal() {
                 <input
                   type="password"
                   name="current-password"
-                  id="current-password"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="••••••••"
                   required=""
@@ -159,7 +155,6 @@ function EditUserModal() {
                 <input
                   type="password"
                   name="new-password"
-                  id="new-password"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="••••••••"
                   required=""
