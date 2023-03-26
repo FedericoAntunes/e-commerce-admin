@@ -1,21 +1,23 @@
-function EditUserModal({ user, actualUser, isModalOpen, setIsModalOpen }) {
+function EditUserModal({
+  user,
+  actualUser,
+  isEditModalOpen,
+  setIsEditModalOpen,
+}) {
   return (
     <>
-      {isModalOpen && actualUser === user.id ? (
+      {isEditModalOpen && actualUser === user.id ? (
         <div className="fixed top-0 left-0 right-0 z-50 items-center justify-center w-full p-4 overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
-          <div className="relative w-auto mx-auto h-full max-w-2xl md:h-auto">
-            <form
-              action="#"
-              className="relative bg-white rounded-lg shadow dark:bg-gray-700"
-            >
-              <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+          <div className=" relative w-auto mx-auto h-full max-w-2xl md:h-auto mt-10">
+            <form action="#" className="relative bg-white rounded-lg shadow">
+              <div className="flex items-start justify-between p-4 border-b rounded-t">
+                <h3 className="text-xl font-semibold text-gray-900">
                   Edit user
                 </h3>
                 <button
                   type="button"
-                  className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => setIsModalOpen()}
+                  className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                  onClick={() => setIsEditModalOpen()}
                 >
                   <svg
                     aria-hidden="true"
@@ -37,14 +39,14 @@ function EditUserModal({ user, actualUser, isModalOpen, setIsModalOpen }) {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       for="first-name"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       First Name
                     </label>
                     <input
                       type="text"
                       name="first-name"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                       placeholder={`${user.firstname}`}
                       required=""
                     />
@@ -52,14 +54,14 @@ function EditUserModal({ user, actualUser, isModalOpen, setIsModalOpen }) {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       for="last-name"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       Last Name
                     </label>
                     <input
                       type="text"
                       name="last-name"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                       placeholder={`${user.lastname}`}
                       required=""
                     />
@@ -67,14 +69,14 @@ function EditUserModal({ user, actualUser, isModalOpen, setIsModalOpen }) {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       for="email"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       Email
                     </label>
                     <input
                       type="email"
                       name="email"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                       placeholder={`${user.email}`}
                       required=""
                     />
@@ -82,14 +84,14 @@ function EditUserModal({ user, actualUser, isModalOpen, setIsModalOpen }) {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       for="phone-number"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       Phone Number
                     </label>
                     <input
                       type="number"
                       name="phone-number"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                       placeholder="e.g. +(12)3456 789"
                       required=""
                     />
@@ -97,14 +99,14 @@ function EditUserModal({ user, actualUser, isModalOpen, setIsModalOpen }) {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       for="department"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       Department
                     </label>
                     <input
                       type="text"
                       name="department"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                       placeholder="Development"
                       required=""
                     />
@@ -112,14 +114,14 @@ function EditUserModal({ user, actualUser, isModalOpen, setIsModalOpen }) {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       for="company"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       Company
                     </label>
                     <input
                       type="number"
                       name="company"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                       placeholder="123456"
                       required=""
                     />
@@ -127,14 +129,14 @@ function EditUserModal({ user, actualUser, isModalOpen, setIsModalOpen }) {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       for="current-password"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       Current Password
                     </label>
                     <input
                       type="password"
                       name="current-password"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                       placeholder="••••••••"
                       required=""
                     />
@@ -142,25 +144,25 @@ function EditUserModal({ user, actualUser, isModalOpen, setIsModalOpen }) {
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       for="new-password"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 text-sm font-medium text-gray-900"
                     >
                       New Password
                     </label>
                     <input
                       type="password"
                       name="new-password"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                       placeholder="••••••••"
                       required=""
                     />
                   </div>
                 </div>
               </div>
-              <div className="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+              <div className="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b">
                 <button
-                  onClick={() => setIsModalOpen()}
+                  onClick={() => setIsEditModalOpen()}
                   type="submit"
-                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 >
                   Save all
                 </button>
