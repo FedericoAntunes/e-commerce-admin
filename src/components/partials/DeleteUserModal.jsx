@@ -37,7 +37,7 @@ function DeleteUserModal({
               <p className="text-sm font-medium text-gray-900">
                 Warning, you are about to delete {user.firstname}{" "}
                 {user.lastname}
-                ´s account
+                ´s account.
               </p>
               <div className="flex border-t border-gray-200 mt-4 p-6">
                 <button
