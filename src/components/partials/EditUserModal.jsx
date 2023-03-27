@@ -8,9 +8,9 @@ function EditUserModal({
     <>
       {isEditModalOpen && actualUser === user.id ? (
         <>
-          <div className="fixed top-0 left-0 right-0 z-50 items-center justify-center w-full p-4 overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
-            <div className=" relative w-auto mx-auto h-full max-w-2xl md:h-auto mt-10">
-              <form action="#" className="relative bg-white rounded-lg shadow">
+          <div className="h-fit w-fit m-auto mt-10 h-auto fixed top-0 left-0 right-0 z-50 items-center justify-center p-4 overflow-y-auto md:inset-0">
+            <div className=" relative w-auto mx-auto h-full max-w-2xl md:h-auto ">
+              <form action="#" className="relative bg-white rounded-lg shadow ">
                 <div className="flex items-start justify-between p-4 border-b rounded-t">
                   <h3 className="text-xl font-semibold text-gray-900">
                     Edit user
@@ -147,7 +147,10 @@ function EditUserModal({
               </form>
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+          <div
+            onClick={() => setIsEditModalOpen()}
+            className="opacity-25 fixed inset-0 z-40 bg-black"
+          ></div>
         </>
       ) : null}
     </>

@@ -8,8 +8,8 @@ function DeleteUserModal({
     <>
       {isDeleteModalOpen && actualUser === user.id ? (
         <>
-          <div className="fixed top-0 left-0 right-0 z-50 items-center justify-center w-full p-4 overflow-y-auto md:inset-0 md:h-full">
-            <div className="relative w-auto mx-auto h-full max-w-2xl md:h-auto bg-white rounded-lg shadow mt-10">
+          <div className="m-auto h-auto h-fit w-fit fixed top-0 left-0 right-0 z-50 items-center justify-center p-4 overflow-y-auto mt-10">
+            <div className="relative w-auto mx-auto h-full max-w-2xl md:h-auto bg-white rounded-lg shadow">
               <div className="flex items-start justify-between p-4 border-b rounded-t">
                 <h3 className="text-xl font-semibold text-gray-900">
                   Delete user
@@ -59,7 +59,10 @@ function DeleteUserModal({
               </div>
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+          <div
+            onClick={() => setIsDeleteModalOpen()}
+            className="opacity-25 fixed inset-0 z-40 bg-black"
+          ></div>
         </>
       ) : null}
     </>
