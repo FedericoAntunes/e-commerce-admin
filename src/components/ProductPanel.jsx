@@ -94,12 +94,12 @@ export default function ProductPanel() {
                           </div>
                         </div>
                       </th>
-                      <td>
+                      <td className="px-6 py-4">
                         <div className="font-normal text-gray-500">
                           {product.company.name}
                         </div>
                       </td>
-                      <td className="px-10 py-4">${product.price}</td>
+                      <td className="px-6 py-4">${product.price}</td>
                       <td className="px-6 py-4">
                         {" "}
                         <div>
