@@ -14,7 +14,6 @@ export default function ProductPanel() {
   const getProducts = async () => {
     const response = await apiCall("/products", "get");
     setProducts(response);
-    console.log(response);
   };
 
   useEffect(() => {
