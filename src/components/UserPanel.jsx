@@ -39,7 +39,7 @@ function UserPanel() {
     <>
       <SideBar />
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <div onClick={notify} className="py-4 bg-white ml-10 w-fit">
+        <div onClick={notify} className="m-auto py-4 bg-white w-fit">
           <label htmlFor="table-search" className="sr-only">
             Search
           </label>

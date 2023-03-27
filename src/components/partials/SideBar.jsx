@@ -9,7 +9,7 @@ export default function SideBar() {
   }
   return (
     <>
-      <div className="text-start pt-4 pl-4">
+      <div className="fixed z-10 opacity-90 text-start pt-4 pl-4 rounded">
         <button
           onClick={() => handleSideBar()}
           className="w-fit flex items-center p-2 text-gray-900 rounded-lg"
@@ -24,7 +24,7 @@ export default function SideBar() {
             <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
             <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
           </svg>
-          <span className="ml-3 text-gray-500 ">Sidebar 🡲</span>
+          <span className="ml-3 text-gray-500 ">Open menu 🡲</span>
         </button>
       </div>
       <>
@@ -52,7 +52,7 @@ export default function SideBar() {
                     <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
                     <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
                   </svg>
-                  <span className="ml-3 text-gray-500">Sidebar 🡰</span>
+                  <span className="ml-3 text-gray-500">Close menu 🡰</span>
                 </button>
               </li>
               <li>
@@ -95,7 +95,7 @@ export default function SideBar() {
               </li>
               <li>
                 <Link
-                  to="/user"
+                  to="/user-panel"
                   className="flex items-center p-2 text-gray-900 rounded-lg"
                 >
                   <svg
@@ -116,7 +116,7 @@ export default function SideBar() {
               </li>
               <li>
                 <Link
-                  to="#"
+                  to="/product-panel"
                   className="flex items-center p-2 text-gray-900 rounded-lg"
                 >
                   <svg
