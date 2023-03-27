@@ -36,7 +36,7 @@ function AdminPanel() {
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <div onClick={notify} className="py-4 bg-white ml-10">
+      <div onClick={notify} className="py-4 bg-white ml-10 w-fit">
         <label for="table-search" className="sr-only">
           Search
         </label>
