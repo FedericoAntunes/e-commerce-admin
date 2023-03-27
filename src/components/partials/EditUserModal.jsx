@@ -9,7 +9,7 @@ function EditUserModal({
       {isEditModalOpen && actualUser === user.id ? (
         <>
           <div className="h-fit w-fit m-auto mt-10 h-auto fixed top-0 left-0 right-0 z-50 items-center justify-center p-4 overflow-y-auto md:inset-0">
-            <div className=" relative w-auto mx-auto h-full max-w-2xl md:h-auto ">
+            <div className=" relative w-auto mx-auto h-full max-w-2xl md:h-auto lg:w-[100rem]   ">
               <form action="#" className="relative bg-white rounded-lg shadow ">
                 <div className="flex items-start justify-between p-4 border-b rounded-t">
                   <h3 className="text-xl font-semibold text-gray-900">
