@@ -2,12 +2,19 @@ import { useState, useEffect } from "react";
 import apiCall from "./api/api";
 import EditUserModal from "./partials/EditUserModal";
 import DeleteUserModal from "./partials/DeleteUserModal";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AdminPanel() {
   const [users, setUsers] = useState([]);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [actualUser, setActualUser] = useState({});
+
+  const notify = () =>
+    toast.warn("This feature is not included yet.", {
+      position: "bottom-right",
+    });
 
   const getUsers = async () => {
     const response = await apiCall("/users", "get");
@@ -29,10 +36,11 @@ function AdminPanel() {
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <div className="py-4 bg-white ml-10">
+      <div onClick={notify} className="py-4 bg-white ml-10">
         <label for="table-search" className="sr-only">
           Search
         </label>
+        <ToastContainer />
         <div className="relative">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
