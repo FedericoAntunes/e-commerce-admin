@@ -40,7 +40,7 @@ function DeleteUserModal({
                   {user.lastname}
                   ´s account.
                 </p>
-                <div className="flex border-t border-gray-200 mt-4 p-6">
+                <div className="flex border-t border-gray-200 mt-4 p-2">
                   <button
                     onClick={() => setIsDeleteModalOpen()}
                     type="submit"
