@@ -28,9 +28,9 @@ function EditUserModal({
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       ></path>
                     </svg>
                   </button>
@@ -39,7 +39,7 @@ function EditUserModal({
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        for="first-name"
+                        htmlFor="first-name"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         First Name
@@ -55,7 +55,7 @@ function EditUserModal({
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        for="last-name"
+                        htmlFor="last-name"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Last Name
@@ -71,7 +71,7 @@ function EditUserModal({
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        for="email"
+                        htmlFor="email"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Email
@@ -87,7 +87,7 @@ function EditUserModal({
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        for="phone-number"
+                        htmlFor="phone-number"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Phone Number
@@ -103,7 +103,7 @@ function EditUserModal({
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        for="user-image"
+                        htmlFor="user-image"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Avatar
@@ -119,7 +119,7 @@ function EditUserModal({
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        for="new-password"
+                        htmlFor="new-password"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         New Password
