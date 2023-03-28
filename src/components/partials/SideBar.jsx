@@ -1,11 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logOutAdmin } from "../../redux/slice/adminSlice";
 
 export default function SideBar() {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   function handleSideBar() {
     setIsSideBarOpen(!isSideBarOpen);
+  }
+
+  function handleLogOut() {
+    dispatch(logOutAdmin());
+    navigate("/login");
   }
   return (
     <>
@@ -138,9 +146,9 @@ export default function SideBar() {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="#"
-                  className="flex items-center p-2 text-gray-900 rounded-lg"
+                <button
+                  onClick={() => handleLogOut()}
+                  className="flex items-center p-2 text-gray-900 rounded-lg w-full"
                 >
                   <svg
                     aria-hidden="true"
@@ -155,8 +163,8 @@ export default function SideBar() {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                  <span className="flex-1 ml-3 whitespace-nowrap">Sign In</span>
-                </Link>
+                  <span className="flex-1 ml-3 whitespace-nowrap">Log out</span>
+                </button>
               </li>
               <li>
                 <a
