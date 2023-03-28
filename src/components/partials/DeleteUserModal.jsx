@@ -1,9 +1,23 @@
+import { useEffect } from "react";
+import apiCall from "../api/api";
+
 function DeleteUserModal({
   user,
   actualUser,
   isDeleteModalOpen,
   setIsDeleteModalOpen,
+  users,
+  setUsers,
 }) {
+  async function handleUserDelete(userId) {
+    await apiCall(`/users/${userId}`, "delete");
+    const index = users.indexOf(user);
+    const refresh = [...users];
+    refresh.splice(index, 1);
+    setUsers(refresh);
+    setIsDeleteModalOpen(!isDeleteModalOpen);
+  }
+
   return (
     <>
       {isDeleteModalOpen && actualUser === user.id ? (
@@ -49,7 +63,7 @@ function DeleteUserModal({
                     Cancel
                   </button>
                   <button
-                    onClick={() => setIsDeleteModalOpen()}
+                    onClick={() => handleUserDelete(actualUser)}
                     type="submit"
                     className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2"
                   >
