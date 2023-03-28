@@ -163,12 +163,12 @@ export default function SideBar() {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                  <span className="flex-1 ml-3 whitespace-nowrap">Log out</span>
+                  <span className="flex-1 ml-3 whitespace-nowrap">Log Out</span>
                 </button>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="flex items-center p-2 text-gray-900 rounded-lg"
                 >
                   <svg
@@ -185,7 +185,7 @@ export default function SideBar() {
                     ></path>
                   </svg>
                   <span className="flex-1 ml-3 whitespace-nowrap">Sign Up</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
