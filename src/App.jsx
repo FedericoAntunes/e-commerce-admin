@@ -4,6 +4,7 @@ import UserPanel from "./components/UserPanel";
 import Home from "./components/Home";
 import ProductPanel from "./components/ProductPanel";
 import Login from "./components/Login";
+import ProtectedRoute from "./components/auth/auth";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Route path="/user-panel" element={<UserPanel />} />
         <Route path="/product-panel" element={<ProductPanel />} />
         <Route path="/login" element={<Login />} />
-      </Routes>
+      </Routes>{" "}
     </div>
   );
 }
