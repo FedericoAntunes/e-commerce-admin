@@ -1,22 +1,22 @@
 import apiCall from "../api/api";
 
-function DeleteUserModal({
-  user,
-  actualUserId,
+function DeleteProductModal({
+  product,
+  actualProductId,
   isDeleteModalOpen,
   setIsDeleteModalOpen,
-  users,
-  setUsers,
+  products,
+  setProducts,
 }) {
-  async function handleUserDelete(userId) {
-    await apiCall(`/users/${userId}`, "delete");
-    setUsers(users.filter((user) => user.id !== userId));
+  async function handleUserDelete(productId) {
+    await apiCall(`/products/${productId}`, "delete");
+    setProducts(products.filter((product) => product.id !== productId));
     return setIsDeleteModalOpen(!isDeleteModalOpen);
   }
 
   return (
     <>
-      {isDeleteModalOpen && actualUserId === user.id ? (
+      {isDeleteModalOpen && actualProductId === product.id ? (
         <>
           <div className="m-auto h-auto h-fit w-fit fixed top-0 left-0 right-0 z-50 items-center justify-center p-4 overflow-y-auto mt-10">
             <div className="relative w-auto mx-auto h-full max-w-2xl md:h-auto bg-white rounded-lg shadow">
@@ -46,9 +46,7 @@ function DeleteUserModal({
               </div>
               <div className="p-6 space-x-2 border-t border-gray-200 rounded-b">
                 <p className="text-sm font-medium text-gray-900">
-                  Warning, you are about to delete {user.firstname}{" "}
-                  {user.lastname}
-                  ´s account.
+                  Warning, you are about to delete the product: {product.title}.
                 </p>
                 <div className="flex border-t border-gray-200 mt-4 p-2">
                   <button
@@ -59,11 +57,11 @@ function DeleteUserModal({
                     Cancel
                   </button>
                   <button
-                    onClick={() => handleUserDelete(actualUserId)}
+                    onClick={() => handleUserDelete(actualProductId)}
                     type="submit"
                     className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2"
                   >
-                    Delete user
+                    Delete product
                   </button>
                 </div>
               </div>
@@ -79,4 +77,4 @@ function DeleteUserModal({
   );
 }
 
-export default DeleteUserModal;
+export default DeleteProductModal;

@@ -2,9 +2,17 @@ import { useState, useEffect } from "react";
 import SideBar from "./partials/SideBar";
 import apiCall from "./api/api";
 import { ToastContainer, toast } from "react-toastify";
+import DeleteProductModal from "./partials/DeleteProductModal";
 
 export default function ProductPanel() {
   const [products, setProducts] = useState([]);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [actualProductId, setActualProductId] = useState({});
+
+  function handleOpenDeleteModal(productId) {
+    setActualProductId(productId);
+    setIsDeleteModalOpen(!isDeleteModalOpen);
+  }
 
   const notify = () =>
     toast.warn("This feature is not included yet.", {
@@ -111,11 +119,20 @@ export default function ProductPanel() {
                         </div>
                         <div className="pt-2">
                           <button
+                            onClick={() => handleOpenDeleteModal(product.id)}
                             type="button"
                             className="font-medium text-red-600 hover:underline"
                           >
                             Delete product
                           </button>
+                          <DeleteProductModal
+                            product={product}
+                            actualProductId={actualProductId}
+                            isDeleteModalOpen={isDeleteModalOpen}
+                            setIsDeleteModalOpen={setIsDeleteModalOpen}
+                            products={products}
+                            setProducts={setProducts}
+                          />
                         </div>
                       </td>
                     </tr>

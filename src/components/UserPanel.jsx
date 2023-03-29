@@ -10,7 +10,7 @@ function UserPanel() {
   const [users, setUsers] = useState([]);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [actualUser, setActualUser] = useState({});
+  const [actualUserId, setActualUserId] = useState({});
   const [refresh, setRefresh] = useState(true);
 
   const notify = () =>
@@ -28,11 +28,11 @@ function UserPanel() {
   }, [refresh]);
 
   function handleOpenModal(userId) {
-    setActualUser(userId);
+    setActualUserId(userId);
     setIsEditModalOpen(!isEditModalOpen);
   }
   function handleOpenDeleteModal(userId) {
-    setActualUser(userId);
+    setActualUserId(userId);
     setIsDeleteModalOpen(!isDeleteModalOpen);
   }
 
@@ -136,7 +136,7 @@ function UserPanel() {
                         </button>
                         <EditUserModal
                           user={user}
-                          actualUser={actualUser}
+                          actualUserId={actualUserId}
                           isEditModalOpen={isEditModalOpen}
                           setIsEditModalOpen={setIsEditModalOpen}
                           refresh={refresh}
@@ -153,7 +153,7 @@ function UserPanel() {
                         </button>
                         <DeleteUserModal
                           user={user}
-                          actualUser={actualUser}
+                          actualUserId={actualUserId}
                           isDeleteModalOpen={isDeleteModalOpen}
                           setIsDeleteModalOpen={setIsDeleteModalOpen}
                           users={users}
