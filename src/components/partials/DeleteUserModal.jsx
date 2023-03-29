@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import apiCall from "../api/api";
 
 function DeleteUserModal({
