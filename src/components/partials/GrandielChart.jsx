@@ -60,11 +60,10 @@ export default function GrandielChart() {
   const toDolar = (decimal, fixed = 0) => `$ ${decimal.toFixed()}`;
 
   const renderTooltipContent = (o) => {
-    const { payload, label } = o;
-    const total = payload.reduce((result, entry) => result + entry.value, 0);
+    const { payload } = o;
 
     return (
-      <div className="customized-tooltip-content border border-black shadow-xl p-2 rounded bg-white">
+      <div className=" customized-tooltip-content border border-black shadow-xl p-2 rounded bg-white">
         <ul className="list">
           {payload.map((entry, index) => (
             <li key={`item-${index}`} style={{ color: entry.color }}>
@@ -81,7 +80,7 @@ export default function GrandielChart() {
         width={1000}
         height={500}
         data={data}
-        margin={{ top: 10, right: 30, left: 10, bottom: 0 }}
+        margin={{ top: 100, right: 30, left: 50, bottom: 0 }}
       >
         <defs>
           <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -93,6 +92,7 @@ export default function GrandielChart() {
             <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
           </linearGradient>
         </defs>
+        <Legend verticalAlign="top" height={36} />
         <XAxis dataKey="name" />
         <YAxis tickFormatter={toDolar} />
         <CartesianGrid strokeDasharray="3 3" />

@@ -17,10 +17,10 @@ export default function SideBar() {
   }
   return (
     <>
-      <div className="fixed z-10 opacity-90 text-start pt-4 pl-4 rounded">
+      <div className="relative z-10 opacity-90 text-start pt-4 pl-4 rounded">
         <button
           onClick={() => handleSideBar()}
-          className="w-fit flex items-center p-2 text-gray-900 rounded-lg"
+          className=" fixed w-fit flex items-center p-2 text-gray-900 rounded-lg"
         >
           <svg
             aria-hidden="true"
