@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
-const ProtectedRoute = ({ redirectPath }) => {
+const ProtectedPrivateRoute = ({ redirectPath }) => {
   const sessionStatus = useSelector((state) => state.user);
 
   if (!sessionStatus) {
@@ -10,4 +10,4 @@ const ProtectedRoute = ({ redirectPath }) => {
   return <Outlet />;
 };
 
-export default ProtectedRoute;
+export default ProtectedPrivateRoute;
