@@ -11,6 +11,7 @@ function UserPanel() {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [actualUser, setActualUser] = useState({});
+  const [refresh, setRefresh] = useState(true);
 
   const notify = () =>
     toast.warn("This feature is not included yet.", {
@@ -24,7 +25,7 @@ function UserPanel() {
 
   useEffect(() => {
     getUsers();
-  }, []);
+  }, [refresh]);
 
   function handleOpenModal(userId) {
     setActualUser(userId);
@@ -138,6 +139,8 @@ function UserPanel() {
                           actualUser={actualUser}
                           isEditModalOpen={isEditModalOpen}
                           setIsEditModalOpen={setIsEditModalOpen}
+                          refresh={refresh}
+                          setRefresh={setRefresh}
                         />
                       </div>
                       <div className="pt-2">
