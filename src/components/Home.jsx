@@ -1,9 +1,11 @@
 import SideBar from "./partials/SideBar";
+import GrandielChart from "./partials/GrandielChart";
+
 export default function Home() {
   return (
     <>
       <SideBar />
-      <div>Estas en home de Admin</div>;
+      <GrandielChart />
     </>
   );
 }
