@@ -11,11 +11,8 @@ function DeleteUserModal({
 }) {
   async function handleUserDelete(userId) {
     await apiCall(`/users/${userId}`, "delete");
-    const index = users.indexOf(user);
-    const refresh = [...users];
-    refresh.splice(index, 1);
-    setUsers(refresh);
-    setIsDeleteModalOpen(!isDeleteModalOpen);
+    setUsers(users.filter((user) => user.id !== userId));
+    return setIsDeleteModalOpen(!isDeleteModalOpen);
   }
 
   return (
