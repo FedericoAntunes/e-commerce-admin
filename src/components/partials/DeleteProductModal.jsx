@@ -22,7 +22,7 @@ function DeleteProductModal({
             <div className="relative w-auto mx-auto h-full max-w-2xl md:h-auto bg-white rounded-lg shadow">
               <div className="flex items-start justify-between p-4 border-b rounded-t">
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Delete user
+                  Delete product
                 </h3>
                 <button
                   type="button"

@@ -10,6 +10,11 @@ function EditProductModal({
   setRefresh,
 }) {
   const [title, setTitle] = useState(product.title);
+  const [price, setPrice] = useState(product.price);
+  const [description, setDescription] = useState(product.description);
+  const [feature, setFeature] = useState(product.feature);
+  const [image, setImage] = useState(product.image);
+  const [logo, setLogo] = useState(product.logo);
 
   async function handleEditUser(e) {
     e.preventDefault();
@@ -42,7 +47,7 @@ function EditProductModal({
               >
                 <div className="flex items-start justify-between p-4 border-b rounded-t">
                   <h3 className="text-xl font-semibold text-gray-900">
-                    Edit user
+                    Edit product
                   </h3>
                   <button
                     type="button"
@@ -74,13 +79,98 @@ function EditProductModal({
                         Title
                       </label>
                       <input
-                        id="product-Title"
+                        id="product-title"
                         type="text"
-                        name="product-Title"
+                        name="product-title"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         placeholder={`${product.title}`}
                         value={title}
                         onChange={(event) => setTitle(event.target.value)}
+                      />
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="product-price"
+                        className="block mb-2 text-sm font-medium text-gray-900"
+                      >
+                        Price
+                      </label>
+                      <input
+                        id="product-price"
+                        type="text"
+                        name="product-price"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                        placeholder={`${product.price}`}
+                        value={price}
+                        onChange={(event) => setPrice(event.target.value)}
+                      />
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="product-description"
+                        className="block mb-2 text-sm font-medium text-gray-900"
+                      >
+                        Description
+                      </label>
+                      <input
+                        id="product-description"
+                        type="text"
+                        name="product-description"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                        placeholder={`${product.description}`}
+                        value={description}
+                        onChange={(event) => setDescription(event.target.value)}
+                      />
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="product-feature"
+                        className="block mb-2 text-sm font-medium text-gray-900"
+                      >
+                        Feature
+                      </label>
+                      <input
+                        id="product-feature"
+                        type="text"
+                        name="product-feature"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                        placeholder={`${product.feature}`}
+                        value={feature}
+                        onChange={(event) => setFeature(event.target.value)}
+                      />
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="product-image"
+                        className="block mb-2 text-sm font-medium text-gray-900"
+                      >
+                        Image
+                      </label>
+                      <input
+                        id="product-image"
+                        type="text"
+                        name="product-image"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                        placeholder={`${product.image}`}
+                        value={image}
+                        onChange={(event) => setImage(event.target.value)}
+                      />
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="product-logo"
+                        className="block mb-2 text-sm font-medium text-gray-900"
+                      >
+                        Logo
+                      </label>
+                      <input
+                        id="product-logo"
+                        type="text"
+                        name="product-logo"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                        placeholder={`${product.logo}`}
+                        value={logo}
+                        onChange={(event) => setLogo(event.target.value)}
                       />
                     </div>
                   </div>
