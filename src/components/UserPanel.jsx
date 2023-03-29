@@ -76,19 +76,19 @@ function UserPanel() {
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
-              <th scope="col" className="pl-20 pr-6 py-3">
+              <th scope="col" className="pl-20 pr-6 py-3 text-center">
                 User
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-3 text-center">
                 Email
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-3 text-center">
                 Username
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-3 text-center">
                 Status
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-3 text-center">
                 Action
               </th>
             </tr>
@@ -103,7 +103,7 @@ function UserPanel() {
                   >
                     <th
                       scope="row"
-                      className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap"
+                      className="flex items-center justify-center px-6 py-4 text-gray-900 whitespace-nowrap "
                     >
                       <img
                         className="w-10 h-10 rounded-full"
@@ -117,18 +117,20 @@ function UserPanel() {
                       </div>
                     </th>
                     <td>
-                      <div className="font-normal text-gray-500">
+                      <div className="font-normal text-gray-500 text-center">
                         {user.email}
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-gray-500">{user.username}</td>
+                    <td className="px-6 py-4 text-gray-500 text-center">
+                      {user.username}
+                    </td>
                     <td className="px-6 py-4">
-                      <div className="flex items-center">
-                        <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>{" "}
+                      <div className="flex items-center justify-center">
+                        <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 "></div>{" "}
                         Online
                       </div>
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="px-6 py-4 text-center">
                       {" "}
                       <div>
                         <button
