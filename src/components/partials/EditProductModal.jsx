@@ -12,7 +12,7 @@ function EditProductModal({
   const [title, setTitle] = useState(product.title);
   const [price, setPrice] = useState(product.price);
   const [description, setDescription] = useState(product.description);
-  const [feature, setFeature] = useState(product.feature);
+  const [featured, setFeatured] = useState(product.featured);
   const [image, setImage] = useState(product.image);
   const [logo, setLogo] = useState(product.logo);
 
@@ -20,16 +20,21 @@ function EditProductModal({
     e.preventDefault();
     const formData = new FormData();
     formData.append("title", title);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("featured", featured);
+    formData.append("image", image);
+    formData.append("logo", logo);
 
     const response = await apiCall(
-      `/users/${actualProductId}`,
+      `/products/${actualProductId}`,
       "patch",
       formData,
       {
         "Content-Type": "multipart/form-data",
       }
     );
-    if (response === "Todo OK") {
+    if (response === "Product updated") {
       setRefresh(!refresh);
     }
     return setIsEditModalOpen(!isEditModalOpen);
@@ -127,16 +132,16 @@ function EditProductModal({
                         htmlFor="product-feature"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
-                        Feature
+                        Featured
                       </label>
                       <input
                         id="product-feature"
                         type="text"
                         name="product-feature"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                        placeholder={`${product.feature}`}
-                        value={feature}
-                        onChange={(event) => setFeature(event.target.value)}
+                        placeholder={`${product.featured}`}
+                        value={featured}
+                        onChange={(event) => setFeatured(event.target.value)}
                       />
                     </div>
                     <div className="col-span-6 sm:col-span-3">

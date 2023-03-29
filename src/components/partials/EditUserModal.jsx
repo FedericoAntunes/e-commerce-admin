@@ -30,7 +30,7 @@ function EditUserModal({
         "Content-Type": "multipart/form-data",
       }
     );
-    if (response === "Todo OK") {
+    if (response === "User updated") {
       setRefresh(!refresh);
     }
     return setIsEditModalOpen(!isEditModalOpen);
