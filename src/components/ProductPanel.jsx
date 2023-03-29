@@ -75,6 +75,9 @@ export default function ProductPanel() {
                 <th scope="col" className="pl-20 pr-6 py-3">
                   Name
                 </th>
+                <th scope="col" className="pl-20 pr-6 py-3">
+                  Description
+                </th>
                 <th scope="col" className="px-6 py-3">
                   Company
                 </th>
@@ -109,6 +112,11 @@ export default function ProductPanel() {
                           </div>
                         </div>
                       </th>
+                      <td className="px-6 py-4 ">
+                        <div className="font-normal text-gray-500">
+                          <p>{product.description}</p>
+                        </div>
+                      </td>
                       <td className="px-6 py-4">
                         <div className="font-normal text-gray-500">
                           {product.company.name}
