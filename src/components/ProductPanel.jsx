@@ -3,11 +3,19 @@ import SideBar from "./partials/SideBar";
 import apiCall from "./api/api";
 import { ToastContainer, toast } from "react-toastify";
 import DeleteProductModal from "./partials/DeleteProductModal";
+import EditProductModal from "./partials/EditProductModal";
 
 export default function ProductPanel() {
   const [products, setProducts] = useState([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [actualProductId, setActualProductId] = useState({});
+  const [refresh, setRefresh] = useState(true);
+
+  function handleOpenEditModal(productId) {
+    setActualProductId(productId);
+    setIsEditModalOpen(!isEditModalOpen);
+  }
 
   function handleOpenDeleteModal(productId) {
     setActualProductId(productId);
@@ -26,7 +34,7 @@ export default function ProductPanel() {
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [refresh]);
   return (
     <>
       <SideBar />
@@ -111,11 +119,20 @@ export default function ProductPanel() {
                         {" "}
                         <div>
                           <button
+                            onClick={() => handleOpenEditModal(product.id)}
                             type="button"
                             className="font-medium text-blue-600 hover:underline"
                           >
                             Edit product
                           </button>
+                          <EditProductModal
+                            product={product}
+                            actualProductId={actualProductId}
+                            isEditModalOpen={isEditModalOpen}
+                            setIsEditModalOpen={setIsEditModalOpen}
+                            refresh={refresh}
+                            setRefresh={setRefresh}
+                          />
                         </div>
                         <div className="pt-2">
                           <button
