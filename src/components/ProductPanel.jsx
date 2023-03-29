@@ -4,6 +4,7 @@ import apiCall from "./api/api";
 import { ToastContainer, toast } from "react-toastify";
 import DeleteProductModal from "./partials/DeleteProductModal";
 import EditProductModal from "./partials/EditProductModal";
+import { useSelector } from "react-redux";
 
 export default function ProductPanel() {
   const [products, setProducts] = useState([]);
@@ -11,6 +12,7 @@ export default function ProductPanel() {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [actualProductId, setActualProductId] = useState({});
   const [refresh, setRefresh] = useState(true);
+  const admin = useSelector((state) => state.user);
 
   function handleOpenEditModal(productId) {
     setActualProductId(productId);
@@ -28,7 +30,9 @@ export default function ProductPanel() {
     });
 
   const getProducts = async () => {
-    const response = await apiCall("/products", "get");
+    const response = await apiCall("/products", "get", null, {
+      Authorization: `Bearer ${admin.token}`,
+    });
     setProducts(response);
   };
 
@@ -75,7 +79,7 @@ export default function ProductPanel() {
                 <th scope="col" className="pl-20 pr-6 py-3">
                   Name
                 </th>
-                <th scope="col" className="pl-20 pr-6 py-3">
+                <th scope="col" className="pl-20 pr-6 py-3 w-1/3">
                   Description
                 </th>
                 <th scope="col" className="px-6 py-3">

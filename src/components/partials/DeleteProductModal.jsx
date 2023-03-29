@@ -1,4 +1,5 @@
 import apiCall from "../api/api";
+import { useSelector } from "react-redux";
 
 function DeleteProductModal({
   product,
@@ -8,8 +9,12 @@ function DeleteProductModal({
   products,
   setProducts,
 }) {
+  const admin = useSelector((state) => state.user);
+
   async function handleUserDelete(productId) {
-    await apiCall(`/products/${productId}`, "delete");
+    await apiCall(`/products/${productId}`, "delete", null, {
+      Authorization: `Bearer ${admin.token}`,
+    });
     setProducts(products.filter((product) => product.id !== productId));
     return setIsDeleteModalOpen(!isDeleteModalOpen);
   }

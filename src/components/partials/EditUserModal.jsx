@@ -1,5 +1,6 @@
 import { useState } from "react";
 import apiCall from "../api/api";
+import { useSelector } from "react-redux";
 
 function EditUserModal({
   user,
@@ -13,6 +14,7 @@ function EditUserModal({
   const [lastname, setLastname] = useState(user.lastname);
   const [username, setUsername] = useState(user.username);
   const [avatar, setAvatar] = useState(user.avatar);
+  const admin = useSelector((state) => state.user);
 
   async function handleEditUser(e) {
     e.preventDefault();
@@ -27,6 +29,7 @@ function EditUserModal({
       "patch",
       formData,
       {
+        Authorization: `Bearer ${admin.token}`,
         "Content-Type": "multipart/form-data",
       }
     );

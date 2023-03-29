@@ -5,6 +5,7 @@ import DeleteUserModal from "./partials/DeleteUserModal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SideBar from "./partials/SideBar";
+import { useSelector } from "react-redux";
 
 function UserPanel() {
   const [users, setUsers] = useState([]);
@@ -12,6 +13,7 @@ function UserPanel() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [actualUserId, setActualUserId] = useState({});
   const [refresh, setRefresh] = useState(true);
+  const admin = useSelector((state) => state.user);
 
   const notify = () =>
     toast.warn("This feature is not included yet.", {
@@ -19,7 +21,9 @@ function UserPanel() {
     });
 
   const getUsers = async () => {
-    const response = await apiCall("/users", "get");
+    const response = await apiCall("/users", "get", null, {
+      Authorization: `Bearer ${admin.token}`,
+    });
     setUsers(response);
   };
 
@@ -79,7 +83,7 @@ function UserPanel() {
                 Email
               </th>
               <th scope="col" className="px-6 py-3">
-                Admin
+                Username
               </th>
               <th scope="col" className="px-6 py-3">
                 Status
@@ -117,7 +121,7 @@ function UserPanel() {
                         {user.email}
                       </div>
                     </td>
-                    <td className="px-10 py-4 text-red-700">x</td>
+                    <td className="px-6 py-4 text-gray-500">{user.username}</td>
                     <td className="px-6 py-4">
                       <div className="flex items-center">
                         <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div>{" "}

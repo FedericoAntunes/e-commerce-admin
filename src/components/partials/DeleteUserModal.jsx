@@ -1,4 +1,5 @@
 import apiCall from "../api/api";
+import { useSelector } from "react-redux";
 
 function DeleteUserModal({
   user,
@@ -8,8 +9,12 @@ function DeleteUserModal({
   users,
   setUsers,
 }) {
+  const admin = useSelector((state) => state.user);
+
   async function handleUserDelete(userId) {
-    await apiCall(`/users/${userId}`, "delete");
+    await apiCall(`/users/${userId}`, "delete", null, {
+      Authorization: `Bearer ${admin.token}`,
+    });
     setUsers(users.filter((user) => user.id !== userId));
     return setIsDeleteModalOpen(!isDeleteModalOpen);
   }

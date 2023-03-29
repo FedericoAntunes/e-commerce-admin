@@ -1,5 +1,6 @@
 import { useState } from "react";
 import apiCall from "../api/api";
+import { useSelector } from "react-redux";
 
 function EditProductModal({
   product,
@@ -15,6 +16,7 @@ function EditProductModal({
   const [featured, setFeatured] = useState(product.featured);
   const [image, setImage] = useState(product.image);
   const [logo, setLogo] = useState(product.logo);
+  const admin = useSelector((state) => state.user);
 
   async function handleEditUser(e) {
     e.preventDefault();
@@ -31,6 +33,7 @@ function EditProductModal({
       "patch",
       formData,
       {
+        Authorization: `Bearer ${admin.token}`,
         "Content-Type": "multipart/form-data",
       }
     );
