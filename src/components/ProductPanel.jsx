@@ -114,17 +114,23 @@ export default function ProductPanel() {
           <table className="w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50">
               <tr>
-                <th scope="col" className="pl-20 pr-6 py-3">
+                <th scope="col" className="pl-20 pr-6 py-3 w-1/5">
                   Name
                 </th>
                 <th scope="col" className="pl-6 pr-6 py-3 text-center">
                   Logo
+                </th>
+                <th scope="col" className="pl-6 pr-6 py-3 text-center">
+                  Category
                 </th>
                 <th scope="col" className="pl-20 pr-6 py-3 w-1/3">
                   Description
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Company
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Featured
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Stock
@@ -147,7 +153,7 @@ export default function ProductPanel() {
                     >
                       <th
                         scope="row"
-                        className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap"
+                        className="flex items-center px-6 py-4 text-gray-900"
                       >
                         <img
                           className="w-10 h-10 rounded-full"
@@ -160,10 +166,8 @@ export default function ProductPanel() {
                           alt="product-image"
                         />
 
-                        <div key={product.id} className="pl-3">
-                          <div className="text-base font-semibold">
-                            {product.title}
-                          </div>
+                        <div className="text-base font-semibold mx-4">
+                          {product.title}
                         </div>
                       </th>
                       <td className="px-6 py-4 mx-auto">
@@ -178,6 +182,9 @@ export default function ProductPanel() {
                           alt="product-image"
                         />
                       </td>
+                      <td className="px-6 py-4 text-center">
+                        {product.category.name}
+                      </td>
                       <td className="px-6 py-4 ">
                         <div className="font-normal text-gray-500">
                           <p>{product.description}</p>
@@ -188,6 +195,11 @@ export default function ProductPanel() {
                           {product.company.name}
                         </div>
                       </td>
+                      {product.featured ? (
+                        <td className="px-6 py-4 text-center">Yes</td>
+                      ) : (
+                        <td className="px-6 py-4 text-center">No</td>
+                      )}
                       <td className="px-6 py-4 text-center">{product.stock}</td>
                       <td className="px-6 py-4">${product.price}</td>
                       <td className="px-6 py-4">
