@@ -48,7 +48,6 @@ export default function ProductPanel() {
       Authorization: `Bearer ${admin.token}`,
     });
     setCompanies(response);
-    console.log(response);
   };
   const getCategories = async () => {
     const response = await apiCall("/categories", "get", null, {

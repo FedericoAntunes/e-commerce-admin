@@ -47,11 +47,23 @@ function CreateProductModal({
       });
     }
     if (response === "Fill all the fields.") {
-      return toast.warn("Please, fill all the fields.", {
-        position: "bottom-right",
-      });
+      return toast.warn(
+        "Please, fill all the fields and select the options that you wish.",
+        {
+          position: "bottom-right",
+        }
+      );
     }
     if (response === "Product stored.") {
+      setTitle("");
+      setCategoryId("");
+      setDescription("");
+      setFeatured("");
+      setImage("");
+      setLogo("");
+      setPrice("");
+      setStock("");
+      setCompanyId("");
       setRefresh(!refresh);
     }
     return setIsCreateModalOpen(!isCreateModalOpen);
@@ -120,12 +132,12 @@ function CreateProductModal({
                         name="select"
                         onChange={(event) => setCompanyId(event.target.value)}
                       >
+                        <option value="" selected disabled hidden>
+                          Choose restaurant
+                        </option>
+
                         {companies.map((company) => (
-                          <option
-                            key={company.id}
-                            value={`${company.id}`}
-                            selected
-                          >
+                          <option key={company.id} value={`${company.id}`}>
                             {company.name}
                           </option>
                         ))}
@@ -142,12 +154,11 @@ function CreateProductModal({
                         name="select"
                         onChange={(event) => setCategoryId(event.target.value)}
                       >
+                        <option value="" selected disabled hidden>
+                          Choose category
+                        </option>
                         {categories.map((category) => (
-                          <option
-                            key={category.id}
-                            value={`${category.id}`}
-                            selected
-                          >
+                          <option key={category.id} value={`${category.id}`}>
                             {category.name}
                           </option>
                         ))}
@@ -162,7 +173,7 @@ function CreateProductModal({
                       </label>
                       <input
                         id="product-price"
-                        type="text"
+                        type="number"
                         name="product-price"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         value={price}
@@ -194,7 +205,7 @@ function CreateProductModal({
                       </label>
                       <input
                         id="product-stock"
-                        type="text"
+                        type="number"
                         name="product-stock"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         value={stock}
@@ -212,9 +223,10 @@ function CreateProductModal({
                         name="select"
                         onChange={(event) => setFeatured(event.target.value)}
                       >
-                        <option value="false" selected>
-                          false
+                        <option value="" selected disabled hidden>
+                          Choose if the product is featured
                         </option>
+                        <option value="false">false</option>
                         <option value="true">true</option>
                       </select>
                     </div>
