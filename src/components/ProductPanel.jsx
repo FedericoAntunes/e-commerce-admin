@@ -5,11 +5,15 @@ import { ToastContainer, toast } from "react-toastify";
 import DeleteProductModal from "./partials/DeleteProductModal";
 import EditProductModal from "./partials/EditProductModal";
 import { useSelector } from "react-redux";
+import CreateProductModal from "./partials/CreateProductModal";
 
 export default function ProductPanel() {
   const [products, setProducts] = useState([]);
+  const [companies, setCompanies] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [actualProductId, setActualProductId] = useState({});
   const [refresh, setRefresh] = useState(true);
   const admin = useSelector((state) => state.user);
@@ -24,6 +28,10 @@ export default function ProductPanel() {
     setIsDeleteModalOpen(!isDeleteModalOpen);
   }
 
+  function handleOpenCreateModal() {
+    setIsCreateModalOpen(!isCreateModalOpen);
+  }
+
   const notify = () =>
     toast.warn("This feature is not included yet.", {
       position: "bottom-right",
@@ -35,9 +43,24 @@ export default function ProductPanel() {
     });
     setProducts(response);
   };
+  const getCompany = async () => {
+    const response = await apiCall("/companies", "get", null, {
+      Authorization: `Bearer ${admin.token}`,
+    });
+    setCompanies(response);
+    console.log(response);
+  };
+  const getCategories = async () => {
+    const response = await apiCall("/categories", "get", null, {
+      Authorization: `Bearer ${admin.token}`,
+    });
+    setCategories(response);
+  };
 
   useEffect(() => {
     getProducts();
+    getCompany();
+    getCategories();
   }, [refresh]);
   return (
     <>
@@ -72,6 +95,22 @@ export default function ProductPanel() {
                 placeholder="Search product"
               />
             </div>
+          </div>
+          <div className="flex justify-end m-10">
+            <button
+              onClick={() => handleOpenCreateModal()}
+              className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+            >
+              Create product
+            </button>
+            <CreateProductModal
+              isCreateModalOpen={isCreateModalOpen}
+              setIsCreateModalOpen={setIsCreateModalOpen}
+              refresh={refresh}
+              setRefresh={setRefresh}
+              companies={companies}
+              categories={categories}
+            />
           </div>
           <table className="w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50">
