@@ -14,6 +14,7 @@ function EditProductModal({
   const [price, setPrice] = useState(product.price);
   const [description, setDescription] = useState(product.description);
   const [featured, setFeatured] = useState(product.featured);
+  const [stock, setStock] = useState(product.stock);
   const [image, setImage] = useState(product.image);
   const [logo, setLogo] = useState(product.logo);
   const admin = useSelector((state) => state.user);
@@ -27,6 +28,7 @@ function EditProductModal({
     formData.append("featured", featured);
     formData.append("image", image);
     formData.append("logo", logo);
+    formData.append("stock", stock);
 
     const response = await apiCall(
       `/products/${actualProductId}`,
@@ -128,6 +130,23 @@ function EditProductModal({
                         placeholder={`${product.description}`}
                         value={description}
                         onChange={(event) => setDescription(event.target.value)}
+                      />
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="product-description"
+                        className="block mb-2 text-sm font-medium text-gray-900"
+                      >
+                        Stock
+                      </label>
+                      <input
+                        id="product-stock"
+                        type="text"
+                        name="product-stock"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                        placeholder={`${product.stock}`}
+                        value={stock}
+                        onChange={(event) => setStock(event.target.value)}
                       />
                     </div>
                     <div className="col-span-6 sm:col-span-3">

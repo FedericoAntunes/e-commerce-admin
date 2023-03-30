@@ -89,9 +89,12 @@ export default function ProductPanel() {
                   Company
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Price
+                  Stock
                 </th>
                 <th scope="col" className="px-6 py-3">
+                  Price
+                </th>
+                <th scope="col" className="text-center px-6 py-3">
                   Action
                 </th>
               </tr>
@@ -147,6 +150,7 @@ export default function ProductPanel() {
                           {product.company.name}
                         </div>
                       </td>
+                      <td className="px-6 py-4 text-center">{product.stock}</td>
                       <td className="px-6 py-4">${product.price}</td>
                       <td className="px-6 py-4">
                         <div>
