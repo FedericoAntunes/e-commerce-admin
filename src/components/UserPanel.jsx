@@ -107,7 +107,11 @@ function UserPanel() {
                     >
                       <img
                         className="w-10 h-10 rounded-full"
-                        src={`${user.avatar}`}
+                        src={
+                          user.avatar.substring(0, 4) === "http"
+                            ? user.avatar
+                            : process.env.REACT_APP_SERVER_DOMAIN + user.avatar
+                        }
                         alt="user-avatar"
                       />
                       <div key={user.id} className="pl-3">

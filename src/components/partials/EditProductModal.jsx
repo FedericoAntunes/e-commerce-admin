@@ -156,12 +156,11 @@ function EditProductModal({
                       </label>
                       <input
                         id="product-image"
-                        type="text"
+                        type="file"
                         name="product-image"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         placeholder={`${product.image}`}
-                        value={image}
-                        onChange={(event) => setImage(event.target.value)}
+                        onChange={(event) => setImage(event.target.files[0])}
                       />
                     </div>
                     <div className="col-span-6 sm:col-span-3">
@@ -173,12 +172,11 @@ function EditProductModal({
                       </label>
                       <input
                         id="product-logo"
-                        type="text"
+                        type="file"
                         name="product-logo"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         placeholder={`${product.logo}`}
-                        value={logo}
-                        onChange={(event) => setLogo(event.target.value)}
+                        onChange={(event) => setLogo(event.target.files[0])}
                       />
                     </div>
                   </div>

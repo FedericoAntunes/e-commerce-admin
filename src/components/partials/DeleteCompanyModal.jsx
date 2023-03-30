@@ -51,7 +51,8 @@ function DeleteCompanyModal({
               </div>
               <div className="p-6 space-x-2 border-t border-gray-200 rounded-b">
                 <p className="text-sm font-medium text-gray-900">
-                  Warning, you are about to delete the company: {company.name}.
+                  Warning, you are about to delete the company: "{company.name}
+                  ". You will aslo delete its products.
                 </p>
                 <div className="flex border-t border-gray-200 mt-4 p-2">
                   <button

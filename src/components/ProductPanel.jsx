@@ -79,6 +79,9 @@ export default function ProductPanel() {
                 <th scope="col" className="pl-20 pr-6 py-3">
                   Name
                 </th>
+                <th scope="col" className="pl-6 pr-6 py-3 text-center">
+                  Logo
+                </th>
                 <th scope="col" className="pl-20 pr-6 py-3 w-1/3">
                   Description
                 </th>
@@ -107,15 +110,33 @@ export default function ProductPanel() {
                       >
                         <img
                           className="w-10 h-10 rounded-full"
-                          src={`${product.image}`}
+                          src={
+                            product.image.substring(0, 4) === "http"
+                              ? product.image
+                              : process.env.REACT_APP_SERVER_DOMAIN +
+                                product.image
+                          }
                           alt="product-image"
                         />
+
                         <div key={product.id} className="pl-3">
                           <div className="text-base font-semibold">
                             {product.title}
                           </div>
                         </div>
                       </th>
+                      <td className="px-6 py-4 mx-auto">
+                        <img
+                          className="w-16 h-16"
+                          src={
+                            product.logo.substring(0, 4) === "http"
+                              ? product.logo
+                              : process.env.REACT_APP_SERVER_DOMAIN +
+                                product.logo
+                          }
+                          alt="product-image"
+                        />
+                      </td>
                       <td className="px-6 py-4 ">
                         <div className="font-normal text-gray-500">
                           <p>{product.description}</p>
@@ -128,7 +149,6 @@ export default function ProductPanel() {
                       </td>
                       <td className="px-6 py-4">${product.price}</td>
                       <td className="px-6 py-4">
-                        {" "}
                         <div>
                           <button
                             onClick={() => handleOpenEditModal(product.id)}

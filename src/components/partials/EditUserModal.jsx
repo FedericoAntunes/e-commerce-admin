@@ -135,12 +135,11 @@ function EditUserModal({
                       </label>
                       <input
                         id="user-avatar"
-                        type="text"
+                        type="file"
                         name="user-avatar"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         placeholder={`${user.avatar}`}
-                        value={avatar}
-                        onChange={(event) => setAvatar(event.target.value)}
+                        onChange={(event) => setAvatar(event.target.files[0])}
                       />
                     </div>
                   </div>
