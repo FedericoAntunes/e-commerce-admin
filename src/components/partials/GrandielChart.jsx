@@ -80,7 +80,7 @@ export default function GrandielChart() {
         width={1000}
         height={500}
         data={data}
-        margin={{ top: 100, right: 30, left: 50, bottom: 0 }}
+        margin={{ top: 50, right: 100, left: 50, bottom: 0 }}
       >
         <defs>
           <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
