@@ -1,6 +1,7 @@
 import { useState } from "react";
 import apiCall from "../api/api";
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 
 function EditProductModal({
   product,
@@ -43,6 +44,11 @@ function EditProductModal({
         "Content-Type": "multipart/form-data",
       }
     );
+    if (response === "Product name already in use.") {
+      return toast.warn("Product name already in use.", {
+        position: "bottom-right",
+      });
+    }
     if (response === "Product updated") {
       setRefresh(!refresh);
     }
@@ -245,6 +251,7 @@ function EditProductModal({
                   >
                     Save all
                   </button>
+                  <ToastContainer />
                 </div>
               </form>
             </div>
