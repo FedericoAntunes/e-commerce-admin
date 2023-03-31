@@ -62,7 +62,7 @@ function CreateCompanyModal({
               >
                 <div className="flex items-start justify-between p-4 border-b rounded-t">
                   <h3 className="text-xl font-semibold text-gray-900">
-                    Create product
+                    Create Company
                   </h3>
                   <button
                     type="button"
@@ -111,15 +111,15 @@ function CreateCompanyModal({
 
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="product-description"
+                        htmlFor="company-description"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Description
                       </label>
                       <input
-                        id="product-description"
+                        id="company-description"
                         type="text"
-                        name="product-description"
+                        name="company-description"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         value={description}
                         onChange={(event) => setDescription(event.target.value)}
@@ -128,15 +128,15 @@ function CreateCompanyModal({
 
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="product-Background"
+                        htmlFor="company-Background"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Background
                       </label>
                       <input
-                        id="product-Background"
+                        id="company-Background"
                         type="file"
-                        name="product-Background"
+                        name="company-Background"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         onChange={(event) => {
                           setBackground(event.target.files[0]);
@@ -145,15 +145,15 @@ function CreateCompanyModal({
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="product-logo"
+                        htmlFor="company-logo"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Logo
                       </label>
                       <input
-                        id="product-logo"
+                        id="company-logo"
                         type="file"
-                        name="product-logo"
+                        name="company-logo"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         onChange={(event) => setLogo(event.target.files[0])}
                       />
