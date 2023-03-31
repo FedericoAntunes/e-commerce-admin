@@ -66,7 +66,17 @@ function EditProductModal({
                   <button
                     type="button"
                     className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-                    onClick={() => setIsEditModalOpen()}
+                    onClick={() => (
+                      setIsEditModalOpen(),
+                      setTitle(product.title),
+                      setPrice(product.price),
+                      setDescription(product.description),
+                      setFeatured(product.featured),
+                      setStock(product.stock),
+                      setImage(product.image),
+                      setLogo(product.logo),
+                      setCategoryId(product.category.id)
+                    )}
                   >
                     <svg
                       aria-hidden="true"

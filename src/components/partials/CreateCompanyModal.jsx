@@ -1,69 +1,76 @@
 import { useState } from "react";
 import apiCall from "../api/api";
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 
-function EditUserModal({
-  user,
-  actualUserId,
-  isEditModalOpen,
-  setIsEditModalOpen,
+function CreateCompanyModal({
+  isCreateModalOpen,
+  setIsCreateModalOpen,
   refresh,
   setRefresh,
 }) {
-  const [firstname, setFirstname] = useState(user.firstname);
-  const [lastname, setLastname] = useState(user.lastname);
-  const [username, setUsername] = useState(user.username);
-  const [avatar, setAvatar] = useState(user.avatar);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [background, setBackground] = useState("");
+  const [logo, setLogo] = useState("");
+
   const admin = useSelector((state) => state.user);
 
-  async function handleEditUser(e) {
+  async function handleCreateUser(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("firstname", firstname);
-    formData.append("lastname", lastname);
-    formData.append("username", username);
-    formData.append("avatar", avatar);
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("background", background);
+    formData.append("logo", logo);
+    formData.append("slug", "");
 
-    const response = await apiCall(
-      `/users/${actualUserId}`,
-      "patch",
-      formData,
-      {
-        Authorization: `Bearer ${admin.token}`,
-        "Content-Type": "multipart/form-data",
-      }
-    );
+    const response = await apiCall(`/products`, "post", formData, {
+      Authorization: `Bearer ${admin.token}`,
+      "Content-Type": "multipart/form-data",
+    });
 
-    if (response === "User updated") {
+    if (response === "Product already exist.") {
+      return toast.warn("This product name already exist.", {
+        position: "bottom-right",
+      });
+    }
+    if (response === "Fill all the fields.") {
+      return toast.warn(
+        "Please, fill all the fields and select the all options.",
+        {
+          position: "bottom-right",
+        }
+      );
+    }
+    if (response === "Product stored.") {
+      setName("");
+      setDescription("");
+      setBackground("");
+      setLogo("");
       setRefresh(!refresh);
     }
-    return setIsEditModalOpen(!isEditModalOpen);
+    return setIsCreateModalOpen(!isCreateModalOpen);
   }
 
   return (
     <>
-      {isEditModalOpen && actualUserId === user.id ? (
+      {isCreateModalOpen ? (
         <>
           <div className="h-fit w-fit m-auto mt-10 h-auto fixed top-0 left-0 right-0 z-50 items-center justify-center p-4 overflow-y-auto md:inset-0">
             <div className=" relative w-auto mx-auto h-full max-w-2xl md:h-auto lg:w-[100rem]   ">
               <form
-                onSubmit={handleEditUser}
+                onSubmit={handleCreateUser}
                 className="relative bg-white rounded-lg shadow "
               >
                 <div className="flex items-start justify-between p-4 border-b rounded-t">
                   <h3 className="text-xl font-semibold text-gray-900">
-                    Edit user
+                    Create product
                   </h3>
                   <button
                     type="button"
                     className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-                    onClick={() => (
-                      setIsEditModalOpen(),
-                      setFirstname(user.firstname),
-                      setLastname(user.lastname),
-                      setUsername(user.username),
-                      setAvatar(user.avatar)
-                    )}
+                    onClick={() => setIsCreateModalOpen()}
                   >
                     <svg
                       aria-hidden="true"
@@ -84,69 +91,68 @@ function EditUserModal({
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="first-name"
+                        htmlFor="product-title"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
-                        First Name
+                        Title
                       </label>
                       <input
-                        id="first-name"
+                        id="product-title"
                         type="text"
-                        name="first-name"
+                        name="product-title"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                        placeholder={`${user.firstname}`}
-                        value={firstname}
-                        onChange={(event) => setFirstname(event.target.value)}
+                        value={title}
+                        onChange={(event) => setName(event.target.value)}
                       />
                     </div>
+
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="last-name"
+                        htmlFor="product-description"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
-                        Last Name
+                        Description
                       </label>
                       <input
-                        id="last-name"
+                        id="product-description"
                         type="text"
-                        name="last-name"
+                        name="product-description"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                        placeholder={`${user.lastname}`}
-                        value={lastname}
-                        onChange={(event) => setLastname(event.target.value)}
+                        value={description}
+                        onChange={(event) => setDescription(event.target.value)}
                       />
                     </div>
+
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="phone-number"
+                        htmlFor="product-Background"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
-                        Username
+                        Background
                       </label>
                       <input
-                        id="username"
-                        type="text"
-                        name="username"
-                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                        placeholder={`${user.username}`}
-                        value={username}
-                        onChange={(event) => setUsername(event.target.value)}
-                      />
-                    </div>
-                    <div className="col-span-6 sm:col-span-3">
-                      <label
-                        htmlFor="user-image"
-                        className="block mb-2 text-sm font-medium text-gray-900"
-                      >
-                        Avatar
-                      </label>
-                      <input
-                        id="user-avatar"
+                        id="product-Background"
                         type="file"
-                        name="user-avatar"
+                        name="product-Background"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                        placeholder={`${user.avatar}`}
-                        onChange={(event) => setAvatar(event.target.files[0])}
+                        onChange={(event) => {
+                          setBackground(event.target.files[0]);
+                        }}
+                      />
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="product-logo"
+                        className="block mb-2 text-sm font-medium text-gray-900"
+                      >
+                        Logo
+                      </label>
+                      <input
+                        id="product-logo"
+                        type="file"
+                        name="product-logo"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                        onChange={(event) => setLogo(event.target.files[0])}
                       />
                     </div>
                   </div>
@@ -158,12 +164,13 @@ function EditUserModal({
                   >
                     Save all
                   </button>
+                  <ToastContainer />
                 </div>
               </form>
             </div>
           </div>
           <div
-            onClick={() => setIsEditModalOpen()}
+            onClick={() => setIsCreateModalOpen()}
             className="opacity-25 fixed inset-0 z-40 bg-black"
           ></div>
         </>
@@ -172,4 +179,4 @@ function EditUserModal({
   );
 }
 
-export default EditUserModal;
+export default CreateCompanyModal;
