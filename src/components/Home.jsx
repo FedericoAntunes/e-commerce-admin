@@ -64,17 +64,21 @@ export default function Home() {
                           />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-900 truncate dark:text-white">
+                          <p className="text-sm font-medium text-gray-900 truncate ">
                             {product.title}
                           </p>
                         </div>{" "}
                         {product.stock === 0 ? (
-                          <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                            Product out of stock!
+                          <div className="inline-flex items-center text-base font-semibold">
+                            <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+                              Product out of stock!
+                            </span>
                           </div>
                         ) : (
-                          <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                            {product.stock}
+                          <div className="inline-flex items-center text-base font-semibold">
+                            <span class="bg-orange-100 text-orange-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+                              {product.stock}
+                            </span>
                           </div>
                         )}
                       </div>
