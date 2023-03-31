@@ -49,7 +49,7 @@ function CreateProductModal({
     }
     if (response === "Fill all the fields.") {
       return toast.warn(
-        "Please, fill all the fields and select the options that you wish.",
+        "Please, fill all the fields and select the all options.",
         {
           position: "bottom-right",
         }
