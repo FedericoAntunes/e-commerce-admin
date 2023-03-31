@@ -168,11 +168,13 @@ function EditProductModal({
                         <option value={`${product.category.id}`} selected>
                           {product.category.name}
                         </option>
-                        {categories.map((category) => (
-                          <option key={category.id} value={`${category.id}`}>
-                            {category.name}
-                          </option>
-                        ))}
+                        {categories.map((category) =>
+                          category.name === product.category.name ? null : (
+                            <option key={category.id} value={`${category.id}`}>
+                              {category.name}
+                            </option>
+                          )
+                        )}
                       </select>
                     </div>
                     <div className="col-span-6 sm:col-span-3">
