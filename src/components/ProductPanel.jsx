@@ -31,7 +31,6 @@ export default function ProductPanel() {
   function handleOpenCreateModal() {
     setIsCreateModalOpen(!isCreateModalOpen);
   }
-  console.log(products);
 
   const notify = () =>
     toast.warn("This feature is not included yet.", {
