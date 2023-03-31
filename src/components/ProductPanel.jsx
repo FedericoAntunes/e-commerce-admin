@@ -31,6 +31,7 @@ export default function ProductPanel() {
   function handleOpenCreateModal() {
     setIsCreateModalOpen(!isCreateModalOpen);
   }
+  console.log(products);
 
   const notify = () =>
     toast.warn("This feature is not included yet.", {
@@ -218,6 +219,7 @@ export default function ProductPanel() {
                             setIsEditModalOpen={setIsEditModalOpen}
                             refresh={refresh}
                             setRefresh={setRefresh}
+                            categories={categories}
                           />
                         </div>
                         <div className="pt-2">

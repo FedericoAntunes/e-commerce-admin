@@ -9,6 +9,7 @@ function EditProductModal({
   setIsEditModalOpen,
   refresh,
   setRefresh,
+  categories,
 }) {
   const [title, setTitle] = useState(product.title);
   const [price, setPrice] = useState(product.price);
@@ -17,6 +18,8 @@ function EditProductModal({
   const [stock, setStock] = useState(product.stock);
   const [image, setImage] = useState(product.image);
   const [logo, setLogo] = useState(product.logo);
+  const [categoryId, setCategoryId] = useState(product.category.id);
+
   const admin = useSelector((state) => state.user);
 
   async function handleEditUser(e) {
@@ -29,6 +32,7 @@ function EditProductModal({
     formData.append("image", image);
     formData.append("logo", logo);
     formData.append("stock", stock);
+    formData.append("categoryId", categoryId);
 
     const response = await apiCall(
       `/products/${actualProductId}`,
@@ -107,7 +111,7 @@ function EditProductModal({
                       </label>
                       <input
                         id="product-price"
-                        type="text"
+                        type="number"
                         name="product-price"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         placeholder={`${product.price}`}
@@ -141,7 +145,7 @@ function EditProductModal({
                       </label>
                       <input
                         id="product-stock"
-                        type="text"
+                        type="number"
                         name="product-stock"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         placeholder={`${product.stock}`}
@@ -154,17 +158,41 @@ function EditProductModal({
                         htmlFor="product-feature"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
+                        Category
+                      </label>
+                      <select
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        name="select"
+                        onChange={(event) => setCategoryId(event.target.value)}
+                      >
+                        <option value="" selected disabled hidden>
+                          Choose category
+                        </option>
+                        {categories.map((category) => (
+                          <option key={category.id} value={`${category.id}`}>
+                            {category.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="product-feature"
+                        className="block mb-2 text-sm font-medium text-gray-900"
+                      >
                         Featured
                       </label>
-                      <input
-                        id="product-feature"
-                        type="text"
-                        name="product-feature"
-                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                        placeholder={`${product.featured}`}
-                        value={featured}
+                      <select
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        name="select"
                         onChange={(event) => setFeatured(event.target.value)}
-                      />
+                      >
+                        <option value="" selected disabled hidden>
+                          Choose if the product is featured
+                        </option>
+                        <option value="false">false</option>
+                        <option value="true">true</option>
+                      </select>
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label

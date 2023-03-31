@@ -35,6 +35,7 @@ function CreateProductModal({
     formData.append("stock", stock);
     formData.append("companyId", companyId);
     formData.append("categoryId", categoryId);
+    formData.append("slug", "");
 
     const response = await apiCall(`/products`, "post", formData, {
       Authorization: `Bearer ${admin.token}`,
@@ -129,6 +130,7 @@ function CreateProductModal({
                         Company
                       </label>
                       <select
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         name="select"
                         onChange={(event) => setCompanyId(event.target.value)}
                       >
@@ -151,6 +153,7 @@ function CreateProductModal({
                         Category
                       </label>
                       <select
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         name="select"
                         onChange={(event) => setCategoryId(event.target.value)}
                       >
@@ -220,6 +223,7 @@ function CreateProductModal({
                         Featured
                       </label>
                       <select
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         name="select"
                         onChange={(event) => setFeatured(event.target.value)}
                       >
