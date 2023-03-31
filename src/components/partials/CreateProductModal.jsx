@@ -87,7 +87,18 @@ function CreateProductModal({
                   <button
                     type="button"
                     className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-                    onClick={() => setIsCreateModalOpen()}
+                    onClick={() => (
+                      setIsCreateModalOpen(),
+                      setTitle(""),
+                      setPrice(""),
+                      setDescription(""),
+                      setFeatured(""),
+                      setStock(""),
+                      setImage(""),
+                      setLogo(""),
+                      setCompanyId(""),
+                      setCategoryId("")
+                    )}
                   >
                     <svg
                       aria-hidden="true"
