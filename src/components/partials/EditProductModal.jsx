@@ -165,8 +165,8 @@ function EditProductModal({
                         name="select"
                         onChange={(event) => setCategoryId(event.target.value)}
                       >
-                        <option value="" selected disabled hidden>
-                          Choose category
+                        <option value={`${product.category.id}`} selected>
+                          {product.category.name}
                         </option>
                         {categories.map((category) => (
                           <option key={category.id} value={`${category.id}`}>
@@ -186,10 +186,8 @@ function EditProductModal({
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                         name="select"
                         onChange={(event) => setFeatured(event.target.value)}
+                        defaultValue={`${product.featured}`}
                       >
-                        <option value="" selected disabled hidden>
-                          Choose if the product is featured
-                        </option>
                         <option value="false">false</option>
                         <option value="true">true</option>
                       </select>
