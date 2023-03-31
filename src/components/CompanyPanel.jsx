@@ -99,11 +99,11 @@ function CompanyPanel() {
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
-              <th scope="col" className="pl-20 pr-6 py-3 text-center">
+              <th scope="col" className="pl-20 pr-6 py-3 text-center w-1/5">
                 Company
               </th>
-              <th scope="col" className="pl-20 pr-6 py-3 text-center">
-                Logo
+              <th scope="col" className="pl-6 pr-6 py-3 text-center">
+                Background
               </th>
               <th scope="col" className="px-6 py-3 text-center w-3/5">
                 Description
@@ -116,14 +116,14 @@ function CompanyPanel() {
           <tbody>
             {companies.map((company) => {
               return (
-                company && (
+                companies && (
                   <tr
                     key={company.id}
                     className="bg-white border-b hover:bg-gray-200"
                   >
                     <th
                       scope="row"
-                      className="flex items-center justify-center px-6 py-4 text-gray-900 whitespace-nowrap "
+                      className="flex h-full justify-center items-center px-6 py-4 text-gray-900 "
                     >
                       <img
                         className="w-16 h-16"
@@ -141,7 +141,7 @@ function CompanyPanel() {
                       </div>
                     </th>
                     <td>
-                      <div className="font-normal text-gray-500 text-center py-4">
+                      <div className="font-normal text-gray-500 text-center">
                         <img
                           className="w-16 h-16"
                           src={
