@@ -6,11 +6,14 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SideBar from "./partials/SideBar";
 import { useSelector } from "react-redux";
+import CreateCompanyModal from "./partials/CreateCompanyModal";
 
 function CompanyPanel() {
   const [companies, setCompanies] = useState([]);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+
   const [actualCompanyId, setActualCompanyId] = useState({});
   const [refresh, setRefresh] = useState(true);
   const admin = useSelector((state) => state.user);
@@ -31,13 +34,17 @@ function CompanyPanel() {
     getCompanies();
   }, [refresh]);
 
-  function handleOpenModal(companyId) {
+  function handleOpenEditModal(companyId) {
     setActualCompanyId(companyId);
     setIsEditModalOpen(!isEditModalOpen);
   }
   function handleOpenDeleteModal(companyId) {
     setActualCompanyId(companyId);
     setIsDeleteModalOpen(!isDeleteModalOpen);
+  }
+
+  function handleOpenCreateModal() {
+    setIsCreateModalOpen(!isCreateModalOpen);
   }
 
   return (
@@ -72,6 +79,22 @@ function CompanyPanel() {
               placeholder="Search for users"
             />
           </div>
+        </div>
+        <div className="flex justify-end m-10">
+          <button
+            onClick={() => handleOpenCreateModal()}
+            className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+          >
+            Add Company
+          </button>
+          {
+            <CreateCompanyModal
+              isCreateModalOpen={isCreateModalOpen}
+              setIsCreateModalOpen={setIsCreateModalOpen}
+              refresh={refresh}
+              setRefresh={setRefresh}
+            />
+          }
         </div>
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50">
@@ -141,7 +164,7 @@ function CompanyPanel() {
                       <div>
                         <button
                           type="button"
-                          onClick={() => handleOpenModal(company.id)}
+                          onClick={() => handleOpenEditModal(company.id)}
                           className="font-medium text-blue-600 hover:underline"
                         >
                           Edit company

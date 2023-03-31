@@ -25,25 +25,22 @@ function CreateCompanyModal({
     formData.append("logo", logo);
     formData.append("slug", "");
 
-    const response = await apiCall(`/products`, "post", formData, {
+    const response = await apiCall(`/companies`, "post", formData, {
       Authorization: `Bearer ${admin.token}`,
       "Content-Type": "multipart/form-data",
     });
 
-    if (response === "Product already exist.") {
-      return toast.warn("This product name already exist.", {
+    if (response === "Company name already exist.") {
+      return toast.warn("This company name already exist.", {
         position: "bottom-right",
       });
     }
     if (response === "Fill all the fields.") {
-      return toast.warn(
-        "Please, fill all the fields and select the all options.",
-        {
-          position: "bottom-right",
-        }
-      );
+      return toast.warn("Please, fill all the fields.", {
+        position: "bottom-right",
+      });
     }
-    if (response === "Product stored.") {
+    if (response === "Company stored.") {
       setName("");
       setDescription("");
       setBackground("");
@@ -70,7 +67,13 @@ function CreateCompanyModal({
                   <button
                     type="button"
                     className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-                    onClick={() => setIsCreateModalOpen()}
+                    onClick={() => (
+                      setIsCreateModalOpen(),
+                      setName(""),
+                      setDescription(""),
+                      setBackground(""),
+                      setLogo("")
+                    )}
                   >
                     <svg
                       aria-hidden="true"
@@ -91,17 +94,17 @@ function CreateCompanyModal({
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="product-title"
+                        htmlFor="comapany-name"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
-                        Title
+                        Name
                       </label>
                       <input
-                        id="product-title"
+                        id="comapany-name"
                         type="text"
-                        name="product-title"
+                        name="comapany-name"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                        value={title}
+                        value={name}
                         onChange={(event) => setName(event.target.value)}
                       />
                     </div>
