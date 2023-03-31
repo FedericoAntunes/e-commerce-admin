@@ -1,6 +1,7 @@
 import { useState } from "react";
 import apiCall from "../api/api";
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 
 function EditUserModal({
   user,
@@ -33,6 +34,16 @@ function EditUserModal({
         "Content-Type": "multipart/form-data",
       }
     );
+    if (response === "Unavailable username") {
+      return toast.warn("Unavailable username.", {
+        position: "bottom-right",
+      });
+    }
+    if (response === "Unavailable user email") {
+      return toast.warn("Unavailable user email.", {
+        position: "bottom-right",
+      });
+    }
 
     if (response === "User updated") {
       setRefresh(!refresh);
@@ -158,6 +169,7 @@ function EditUserModal({
                   >
                     Save all
                   </button>
+                  <ToastContainer />
                 </div>
               </form>
             </div>
