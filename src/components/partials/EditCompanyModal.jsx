@@ -1,6 +1,7 @@
 import { useState } from "react";
 import apiCall from "../api/api";
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 
 function EditCompanyModal({
   company,
@@ -34,6 +35,11 @@ function EditCompanyModal({
         "Content-Type": "multipart/form-data",
       }
     );
+    if (response === "Unavailable comapany name") {
+      return toast.warn("Unavailable comapany name.", {
+        position: "bottom-right",
+      });
+    }
     if (response === "Company updated") {
       setRefresh(!refresh);
     }
@@ -159,6 +165,7 @@ function EditCompanyModal({
                   >
                     Save all
                   </button>
+                  <ToastContainer />
                 </div>
               </form>
             </div>
