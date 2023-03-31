@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import apiCall from "./api/api";
-import EditUserModal from "./partials/EditUserModal";
+import EditCompanyModal from "./partials/EditCompanyModal";
 import DeleteCompanyModal from "./partials/DeleteCompanyModal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SideBar from "./partials/SideBar";
 import { useSelector } from "react-redux";
 
-function UserPanel() {
+function CompanyPanel() {
   const [companies, setCompanies] = useState([]);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -79,6 +79,9 @@ function UserPanel() {
               <th scope="col" className="pl-20 pr-6 py-3 text-center">
                 Company
               </th>
+              <th scope="col" className="pl-20 pr-6 py-3 text-center">
+                Logo
+              </th>
               <th scope="col" className="px-6 py-3 text-center w-3/5">
                 Description
               </th>
@@ -100,8 +103,12 @@ function UserPanel() {
                       className="flex items-center justify-center px-6 py-4 text-gray-900 whitespace-nowrap "
                     >
                       <img
-                        className="w-10 h-10 rounded-full"
-                        src={`${company.logo}`}
+                        className="w-16 h-16"
+                        src={
+                          company.logo.substring(0, 4) === "http"
+                            ? company.logo
+                            : process.env.REACT_APP_SERVER_DOMAIN + company.logo
+                        }
                         alt="company-logo"
                       />
                       <div key={company.id} className="pl-3">
@@ -110,6 +117,20 @@ function UserPanel() {
                         </div>
                       </div>
                     </th>
+                    <td>
+                      <div className="font-normal text-gray-500 text-center py-4">
+                        <img
+                          className="w-16 h-16"
+                          src={
+                            company.background.substring(0, 4) === "http"
+                              ? company.background
+                              : process.env.REACT_APP_SERVER_DOMAIN +
+                                company.background
+                          }
+                          alt="company-background"
+                        />{" "}
+                      </div>
+                    </td>
                     <td>
                       <div className="font-normal text-gray-500 text-center py-4">
                         {company.description}
@@ -125,14 +146,14 @@ function UserPanel() {
                         >
                           Edit company
                         </button>
-                        {/*<EditUserModal
+                        <EditCompanyModal
                           company={company}
                           actualCompanyId={actualCompanyId}
                           isEditModalOpen={isEditModalOpen}
                           setIsEditModalOpen={setIsEditModalOpen}
                           refresh={refresh}
                           setRefresh={setRefresh}
-                        />*/}
+                        />
                       </div>
                       <div className="pt-2">
                         <button
@@ -163,4 +184,4 @@ function UserPanel() {
   );
 }
 
-export default UserPanel;
+export default CompanyPanel;
