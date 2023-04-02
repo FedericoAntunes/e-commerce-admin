@@ -154,7 +154,7 @@ function EditProductModal({
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="product-description"
+                        htmlFor="product-stock"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Stock
@@ -171,7 +171,7 @@ function EditProductModal({
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="product-feature"
+                        htmlFor="product-category"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Category

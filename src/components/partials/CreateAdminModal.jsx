@@ -105,15 +105,15 @@ function CreateAdminModal({
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="comapany-name"
+                        htmlFor="admin-firstname"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Firstname
                       </label>
                       <input
-                        id="comapany-name"
+                        id="admin-firstname"
                         type="text"
-                        name="comapany-name"
+                        name="admin-firstname"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         onChange={(event) => setFirstname(event.target.value)}
                       />
@@ -121,15 +121,15 @@ function CreateAdminModal({
 
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="company-description"
+                        htmlFor="admin-lastname"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Lastname
                       </label>
                       <input
-                        id="company-description"
+                        id="admin-lastname"
                         type="text"
-                        name="company-description"
+                        name="admin-lastname"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         onChange={(event) => setLastname(event.target.value)}
                       />
@@ -137,15 +137,15 @@ function CreateAdminModal({
 
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="company-avatar"
+                        htmlFor="admin-avatar"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Avatar
                       </label>
                       <input
-                        id="company-avatar"
+                        id="admin-avatar"
                         type="file"
-                        name="company-avatar"
+                        name="admin-avatar"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         onChange={(event) => {
                           setAvatar(event.target.files[0]);
@@ -154,45 +154,45 @@ function CreateAdminModal({
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="company-email"
+                        htmlFor="admin-email"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Email
                       </label>
                       <input
-                        id="company-email"
+                        id="admin-email"
                         type="text"
-                        name="company-email"
+                        name="admin-email"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         onChange={(event) => setEmail(event.target.value)}
                       />
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="company-email"
+                        htmlFor="admin-username"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Username
                       </label>
                       <input
-                        id="company-email"
+                        id="admin-username"
                         type="text"
-                        name="company-email"
+                        name="admin-username"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         onChange={(event) => setUsername(event.target.value)}
                       />
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="company-email"
+                        htmlFor="admin-password"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Password
                       </label>
                       <input
-                        id="company-email"
+                        id="admin-password"
                         type="text"
-                        name="company-email"
+                        name="admin-password"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         onChange={(event) => setPassword(event.target.value)}
                       />

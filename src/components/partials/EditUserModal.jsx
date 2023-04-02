@@ -95,15 +95,15 @@ function EditUserModal({
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="first-name"
+                        htmlFor="user-firstname"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
-                        First Name
+                        FirstName
                       </label>
                       <input
-                        id="first-name"
+                        id="user-firstname"
                         type="text"
-                        name="first-name"
+                        name="user-firstname"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         placeholder={`${user.firstname}`}
                         value={firstname}
@@ -112,15 +112,15 @@ function EditUserModal({
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="last-name"
+                        htmlFor="user-lastname"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
-                        Last Name
+                        LastName
                       </label>
                       <input
-                        id="last-name"
+                        id="user-lastname"
                         type="text"
-                        name="last-name"
+                        name="user-lastname"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         placeholder={`${user.lastname}`}
                         value={lastname}
@@ -129,15 +129,15 @@ function EditUserModal({
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="phone-number"
+                        htmlFor="user-username"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Username
                       </label>
                       <input
-                        id="username"
+                        id="user-username"
                         type="text"
-                        name="username"
+                        name="user-username"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         placeholder={`${user.username}`}
                         value={username}
@@ -146,7 +146,7 @@ function EditUserModal({
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="user-image"
+                        htmlFor="user-avatar"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
                         Avatar
