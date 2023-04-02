@@ -11,7 +11,7 @@ function DeleteProductModal({
 }) {
   const admin = useSelector((state) => state.user);
 
-  async function handleUserDelete(productId) {
+  async function handleProductDelete(productId) {
     await apiCall(`/products/${productId}`, "delete", null, {
       Authorization: `Bearer ${admin.token}`,
     });
@@ -62,7 +62,7 @@ function DeleteProductModal({
                     Cancel
                   </button>
                   <button
-                    onClick={() => handleUserDelete(actualProductId)}
+                    onClick={() => handleProductDelete(actualProductId)}
                     type="submit"
                     className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-2"
                   >

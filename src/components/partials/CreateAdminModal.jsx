@@ -3,35 +3,43 @@ import apiCall from "../api/api";
 import { useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 
-function CreateCompanyModal({
+function CreateAdminModal({
   isCreateModalOpen,
   setIsCreateModalOpen,
   refresh,
   setRefresh,
 }) {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [background, setBackground] = useState("");
-  const [logo, setLogo] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [avatar, setAvatar] = useState("");
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const admin = useSelector((state) => state.user);
 
-  async function handleCreateCompany(e) {
+  async function handleCreateAdmin(e) {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("name", name);
-    formData.append("description", description);
-    formData.append("background", background);
-    formData.append("logo", logo);
-    formData.append("slug", "");
+    formData.append("firstname", firstname);
+    formData.append("lastname", lastname);
+    formData.append("avatar", avatar);
+    formData.append("email", email);
+    formData.append("username", username);
+    formData.append("password", password);
 
-    const response = await apiCall(`/companies`, "post", formData, {
+    const response = await apiCall(`/admins`, "post", formData, {
       Authorization: `Bearer ${admin.token}`,
       "Content-Type": "multipart/form-data",
     });
 
-    if (response === "Company name already exist.") {
-      return toast.warn("This company name already exist.", {
+    if (response === "Admin email already exist.") {
+      return toast.warn("This admin email already exist.", {
+        position: "bottom-right",
+      });
+    }
+    if (response === "Admin username already exist.") {
+      return toast.warn("This admin username already exist.", {
         position: "bottom-right",
       });
     }
@@ -40,11 +48,12 @@ function CreateCompanyModal({
         position: "bottom-right",
       });
     }
-    if (response === "Company stored.") {
-      setName("");
-      setDescription("");
-      setBackground("");
-      setLogo("");
+    if (response === "Admin created.") {
+      setFirstname("");
+      setLastname("");
+      setAvatar("");
+      setEmail("");
+      setPassword("");
       setRefresh(!refresh);
     }
     return setIsCreateModalOpen(!isCreateModalOpen);
@@ -57,22 +66,24 @@ function CreateCompanyModal({
           <div className="h-fit w-fit m-auto mt-10 h-auto fixed top-0 left-0 right-0 z-50 items-center justify-center p-4 overflow-y-auto md:inset-0">
             <div className=" relative w-auto mx-auto h-full max-w-2xl md:h-auto lg:w-[100rem]   ">
               <form
-                onSubmit={handleCreateCompany}
+                onSubmit={handleCreateAdmin}
                 className="relative bg-white rounded-lg shadow "
               >
                 <div className="flex items-start justify-between p-4 border-b rounded-t">
                   <h3 className="text-xl font-semibold text-gray-900">
-                    Create Company
+                    Create Admin Account
                   </h3>
                   <button
                     type="button"
                     className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
                     onClick={() => (
                       setIsCreateModalOpen(),
-                      setName(""),
-                      setDescription(""),
-                      setBackground(""),
-                      setLogo("")
+                      setFirstname(""),
+                      setLastname(""),
+                      setAvatar(""),
+                      setEmail(""),
+                      setUsername(""),
+                      setPassword("")
                     )}
                   >
                     <svg
@@ -97,15 +108,14 @@ function CreateCompanyModal({
                         htmlFor="comapany-name"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
-                        Name
+                        Firstname
                       </label>
                       <input
                         id="comapany-name"
                         type="text"
                         name="comapany-name"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                        value={name}
-                        onChange={(event) => setName(event.target.value)}
+                        onChange={(event) => setFirstname(event.target.value)}
                       />
                     </div>
 
@@ -114,48 +124,77 @@ function CreateCompanyModal({
                         htmlFor="company-description"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
-                        Description
+                        Lastname
                       </label>
                       <input
                         id="company-description"
                         type="text"
                         name="company-description"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                        value={description}
-                        onChange={(event) => setDescription(event.target.value)}
+                        onChange={(event) => setLastname(event.target.value)}
                       />
                     </div>
 
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="company-Background"
+                        htmlFor="company-avatar"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
-                        Background
+                        Avatar
                       </label>
                       <input
-                        id="company-Background"
+                        id="company-avatar"
                         type="file"
-                        name="company-Background"
+                        name="company-avatar"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
                         onChange={(event) => {
-                          setBackground(event.target.files[0]);
+                          setAvatar(event.target.files[0]);
                         }}
                       />
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
-                        htmlFor="company-logo"
+                        htmlFor="company-email"
                         className="block mb-2 text-sm font-medium text-gray-900"
                       >
-                        Logo
+                        Email
                       </label>
                       <input
-                        id="company-logo"
-                        type="file"
-                        name="company-logo"
+                        id="company-email"
+                        type="text"
+                        name="company-email"
                         className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                        onChange={(event) => setLogo(event.target.files[0])}
+                        onChange={(event) => setEmail(event.target.value)}
+                      />
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="company-email"
+                        className="block mb-2 text-sm font-medium text-gray-900"
+                      >
+                        Username
+                      </label>
+                      <input
+                        id="company-email"
+                        type="text"
+                        name="company-email"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                        onChange={(event) => setUsername(event.target.value)}
+                      />
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="company-email"
+                        className="block mb-2 text-sm font-medium text-gray-900"
+                      >
+                        Password
+                      </label>
+                      <input
+                        id="company-email"
+                        type="text"
+                        name="company-email"
+                        className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                        onChange={(event) => setPassword(event.target.value)}
                       />
                     </div>
                   </div>
@@ -182,4 +221,4 @@ function CreateCompanyModal({
   );
 }
 
-export default CreateCompanyModal;
+export default CreateAdminModal;

@@ -8,6 +8,7 @@ import ProtectedPrivateRoute from "./components/auth/ProtectedPrivateRoute";
 import ProtectedPublicRoute from "./components/auth/ProtectedPublicRoute";
 import Error404 from "./components/Error404";
 import CompanyPanel from "./components/CompanyPanel";
+import AdminPanel from "./components/AdminPanel";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/user-panel" element={<UserPanel />} />
           <Route path="/product-panel" element={<ProductPanel />} />
           <Route path="/company-panel" element={<CompanyPanel />} />
+          <Route path="/admin-panel" element={<AdminPanel />} />
         </Route>
         <Route element={<ProtectedPublicRoute redirectPath={"/"} />}>
           <Route path="/login" element={<Login />} />
