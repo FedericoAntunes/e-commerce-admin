@@ -3,10 +3,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Line,
   Legend,
-  LineChart,
-  linearGradient,
   AreaChart,
   Area,
 } from "recharts";
