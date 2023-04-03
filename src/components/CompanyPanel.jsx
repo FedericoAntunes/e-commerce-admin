@@ -63,7 +63,7 @@ function CompanyPanel() {
           }
         </div>
         <table className="w-full text-sm text-left text-gray-500">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-200">
             <tr>
               <th scope="col" className="pl-20 pr-6 py-3 text-center w-1/5">
                 Company
