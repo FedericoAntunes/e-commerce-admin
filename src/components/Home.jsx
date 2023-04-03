@@ -31,65 +31,67 @@ export default function Home() {
   return (
     <>
       <SideBar />
-      <div className="flex content-center justify-center flex-wrap">
-        <GrandielChart />
+      <div className="flex content-center justify-center flex-wrap mt-10">
         <div className="flex">
-          <div className="m-10 w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
-            <div className="flex items-center justify-between mb-4">
-              <h5 className="text-xl font-bold leading-none text-gray-900">
-                Lower stock products
-              </h5>
-              <Link
-                to="/product-panel"
-                className="text-sm font-medium text-blue-600 hover:underline"
-              >
-                View product tables
-              </Link>
-            </div>
-            <div className="flow-root">
-              {lowerStockProducts.map((product) => {
-                return (
-                  <ul role="list" className="divide-y divide-gray-200">
-                    <li className="py-3 sm:py-4">
-                      <div className="flex items-center space-x-4">
-                        <div className="flex-shrink-0">
-                          <img
-                            className="w-8 h-8 rounded-full"
-                            src={
-                              product.image.substring(0, 4) === "http"
-                                ? product.image
-                                : process.env.REACT_APP_SERVER_DOMAIN +
-                                  product.image
-                            }
-                            alt="product-image"
-                          />
+          <div>
+            <GrandielChart />
+            <div className="mx-auto my-10 w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
+              <div className="flex items-center justify-between mb-4">
+                <h5 className="text-xl font-bold leading-none text-gray-900">
+                  Lower stock products
+                </h5>
+                <Link
+                  to="/product-panel"
+                  className="text-sm font-medium text-blue-600 hover:underline"
+                >
+                  View product tables
+                </Link>
+              </div>
+              <div className="flow-root">
+                {lowerStockProducts.map((product) => {
+                  return (
+                    <ul role="list" className="divide-y divide-gray-200">
+                      <li className="py-3 sm:py-4">
+                        <div className="flex items-center space-x-4">
+                          <div className="flex-shrink-0">
+                            <img
+                              className="w-8 h-8 rounded-full"
+                              src={
+                                product.image.substring(0, 4) === "http"
+                                  ? product.image
+                                  : process.env.REACT_APP_SERVER_DOMAIN +
+                                    product.image
+                              }
+                              alt="product-image"
+                            />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-gray-900 truncate ">
+                              {product.title}
+                            </p>
+                          </div>{" "}
+                          {product.stock === 0 ? (
+                            <div className="inline-flex items-center text-base font-semibold">
+                              <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+                                Product out of stock!
+                              </span>
+                            </div>
+                          ) : (
+                            <div className="inline-flex items-center text-base font-semibold">
+                              <span class="bg-orange-100 text-orange-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+                                {product.stock}
+                              </span>
+                            </div>
+                          )}
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-900 truncate ">
-                            {product.title}
-                          </p>
-                        </div>{" "}
-                        {product.stock === 0 ? (
-                          <div className="inline-flex items-center text-base font-semibold">
-                            <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
-                              Product out of stock!
-                            </span>
-                          </div>
-                        ) : (
-                          <div className="inline-flex items-center text-base font-semibold">
-                            <span class="bg-orange-100 text-orange-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
-                              {product.stock}
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                    </li>
-                  </ul>
-                );
-              })}
+                      </li>
+                    </ul>
+                  );
+                })}
+              </div>
             </div>
           </div>
-          <div className="m-10 w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
+          <div className=" w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
             <div className="flex items-center justify-between mb-4">
               <h5 className="text-xl font-bold leading-none text-gray-900">
                 Featured products
