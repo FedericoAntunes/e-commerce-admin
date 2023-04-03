@@ -2,13 +2,24 @@ import SideBar from "./SideBar";
 import { useSelector } from "react-redux";
 import { Dropdown, Avatar } from "flowbite-react";
 import { ToastContainer, toast } from "react-toastify";
+import { logOutAdmin } from "../../../redux/slice/adminSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const admin = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const notify = () =>
     toast.warn("This feature is not included yet.", {
       position: "bottom-right",
     });
+
+  function handleLogOut() {
+    dispatch(logOutAdmin());
+    return navigate("/login");
+  }
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -71,7 +82,9 @@ export default function Header() {
               <Dropdown.Item>Settings</Dropdown.Item>
               <Dropdown.Item>Earnings</Dropdown.Item>
               <Dropdown.Divider />
-              <Dropdown.Item>Sign out</Dropdown.Item>
+              <Dropdown.Item onClick={() => handleLogOut()}>
+                Sign out
+              </Dropdown.Item>
             </Dropdown>
           ) : null}
 

@@ -24,7 +24,7 @@ function AdminPanel() {
   }, [refresh]);
 
   function handleOpenCreateModal() {
-    setIsCreateModalOpen(!isCreateModalOpen);
+    return setIsCreateModalOpen(!isCreateModalOpen);
   }
 
   return (

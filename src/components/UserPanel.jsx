@@ -28,11 +28,11 @@ function UserPanel() {
 
   function handleOpenModal(userId) {
     setActualUserId(userId);
-    setIsEditModalOpen(!isEditModalOpen);
+    return setIsEditModalOpen(!isEditModalOpen);
   }
   function handleOpenDeleteModal(userId) {
     setActualUserId(userId);
-    setIsDeleteModalOpen(!isDeleteModalOpen);
+    return setIsDeleteModalOpen(!isDeleteModalOpen);
   }
 
   return (

@@ -7,14 +7,16 @@ export default function SideBar() {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   function handleSideBar() {
-    setIsSideBarOpen(!isSideBarOpen);
+    return setIsSideBarOpen(!isSideBarOpen);
   }
 
   function handleLogOut() {
     dispatch(logOutAdmin());
-    navigate("/login");
+    return navigate("/login");
   }
+
   return (
     <>
       <div className="relative z-10 opacity-90 text-start pt-4 pl-4 rounded">

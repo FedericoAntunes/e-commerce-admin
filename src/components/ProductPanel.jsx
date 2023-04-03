@@ -19,16 +19,16 @@ export default function ProductPanel() {
 
   function handleOpenEditModal(productId) {
     setActualProductId(productId);
-    setIsEditModalOpen(!isEditModalOpen);
+    return setIsEditModalOpen(!isEditModalOpen);
   }
 
   function handleOpenDeleteModal(productId) {
     setActualProductId(productId);
-    setIsDeleteModalOpen(!isDeleteModalOpen);
+    return setIsDeleteModalOpen(!isDeleteModalOpen);
   }
 
   function handleOpenCreateModal() {
-    setIsCreateModalOpen(!isCreateModalOpen);
+    return setIsCreateModalOpen(!isCreateModalOpen);
   }
 
   const getProducts = async () => {
