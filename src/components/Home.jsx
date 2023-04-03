@@ -1,10 +1,10 @@
-import SideBar from "./partials/SideBar";
 import GrandielChart from "./partials/Home/GrandielChart";
 import apiCall from "./api/api";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import OrderTable from "./partials/Home/OrderTable";
+import Header from "./partials/Header/Header";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <>
-      <SideBar />
+      <Header />
       <div className="flex content-center justify-center flex-wrap mt-10">
         <div className="flex">
           <div>
