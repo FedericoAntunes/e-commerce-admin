@@ -200,8 +200,8 @@ export default function ProductPanel() {
                             actualProductId={actualProductId}
                             isDeleteModalOpen={isDeleteModalOpen}
                             setIsDeleteModalOpen={setIsDeleteModalOpen}
-                            products={products}
-                            setProducts={setProducts}
+                            refresh={refresh}
+                            setRefresh={setRefresh}
                           />
                         </div>
                       </td>

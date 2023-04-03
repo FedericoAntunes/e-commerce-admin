@@ -6,8 +6,8 @@ function DeleteUserModal({
   actualUserId,
   isDeleteModalOpen,
   setIsDeleteModalOpen,
-  users,
-  setUsers,
+  refresh,
+  setRefresh,
 }) {
   const admin = useSelector((state) => state.user);
 
@@ -15,7 +15,7 @@ function DeleteUserModal({
     await apiCall(`/users/${userId}`, "delete", null, {
       Authorization: `Bearer ${admin.token}`,
     });
-    setUsers(users.filter((user) => user.id !== userId));
+    setRefresh(!refresh);
     return setIsDeleteModalOpen(!isDeleteModalOpen);
   }
 

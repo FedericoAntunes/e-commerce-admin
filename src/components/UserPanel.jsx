@@ -132,8 +132,8 @@ function UserPanel() {
                           actualUserId={actualUserId}
                           isDeleteModalOpen={isDeleteModalOpen}
                           setIsDeleteModalOpen={setIsDeleteModalOpen}
-                          users={users}
-                          setUsers={setUsers}
+                          refresh={refresh}
+                          setRefresh={setRefresh}
                         />
                       </div>
                     </td>

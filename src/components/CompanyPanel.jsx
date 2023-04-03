@@ -157,8 +157,8 @@ function CompanyPanel() {
                           actualCompanyId={actualCompanyId}
                           isDeleteModalOpen={isDeleteModalOpen}
                           setIsDeleteModalOpen={setIsDeleteModalOpen}
-                          companies={companies}
-                          setCompanies={setCompanies}
+                          refresh={refresh}
+                          setRefresh={setRefresh}
                         />
                       </div>
                     </td>
