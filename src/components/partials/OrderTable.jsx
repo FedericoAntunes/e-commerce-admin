@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 function OrderTable() {
   const [oreders, setOrders] = useState([]);
-  const [refresh, setRefresh] = useState(true);
   const admin = useSelector((state) => state.user);
 
   const notify = () =>
@@ -23,7 +22,8 @@ function OrderTable() {
 
   useEffect(() => {
     getOrders();
-  }, [refresh]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>

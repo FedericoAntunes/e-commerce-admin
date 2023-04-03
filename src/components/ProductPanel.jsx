@@ -60,6 +60,7 @@ export default function ProductPanel() {
     getProducts();
     getCompany();
     getCategories();
+    // eslint-disable-next-line
   }, [refresh]);
   return (
     <>
@@ -163,7 +164,7 @@ export default function ProductPanel() {
                               : process.env.REACT_APP_SERVER_DOMAIN +
                                 product.image
                           }
-                          alt="product-image"
+                          alt="product"
                         />
 
                         <div className="text-base font-semibold mx-4">
@@ -179,7 +180,7 @@ export default function ProductPanel() {
                               : process.env.REACT_APP_SERVER_DOMAIN +
                                 product.logo
                           }
-                          alt="product-image"
+                          alt="product"
                         />
                       </td>
                       <td className="px-6 py-4 text-center">

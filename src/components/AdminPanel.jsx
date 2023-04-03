@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import apiCall from "./api/api";
-import EditUserModal from "./partials/EditUserModal";
-import DeleteUserModal from "./partials/DeleteUserModal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SideBar from "./partials/SideBar";
@@ -10,10 +8,7 @@ import CreateAdminModal from "./partials/CreateAdminModal";
 
 function AdminPanel() {
   const [admins, setAdmins] = useState([]);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
-  const [actualAdminId, setActualAdminId] = useState({});
   const [refresh, setRefresh] = useState(true);
   const admin = useSelector((state) => state.user);
 
@@ -31,16 +26,9 @@ function AdminPanel() {
 
   useEffect(() => {
     getAdmins();
+    // eslint-disable-next-line
   }, [refresh]);
 
-  function handleOpenModal(adminId) {
-    setActualAdminId(adminId);
-    setIsEditModalOpen(!isEditModalOpen);
-  }
-  function handleOpenDeleteModal(adminId) {
-    setActualAdminId(adminId);
-    setIsDeleteModalOpen(!isDeleteModalOpen);
-  }
   function handleOpenCreateModal() {
     setIsCreateModalOpen(!isCreateModalOpen);
   }
@@ -72,9 +60,9 @@ function AdminPanel() {
             </div>
             <input
               type="text"
-              id="table-search-users"
+              id="table-search-admins"
               className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Search for users"
+              placeholder="Search for admins"
             />
           </div>
         </div>
@@ -109,9 +97,6 @@ function AdminPanel() {
               <th scope="col" className="px-6 py-3 text-center">
                 Status
               </th>
-              <th scope="col" className="px-6 py-3 text-center">
-                Action
-              </th>
             </tr>
           </thead>
           <tbody>
@@ -144,43 +129,6 @@ function AdminPanel() {
                       <div className="flex items-center justify-center">
                         <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 "></div>{" "}
                         Online
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-center">
-                      {" "}
-                      <div>
-                        <button
-                          type="button"
-                          onClick={() => handleOpenModal(admin.id)}
-                          className="font-medium text-blue-600 hover:underline"
-                        >
-                          Edit admin
-                        </button>
-                        {/*<EditUserModal
-                          admin={admin}
-                          actualAdminId={actualAdminId}
-                          isEditModalOpen={isEditModalOpen}
-                          setIsEditModalOpen={setIsEditModalOpen}
-                          refresh={refresh}
-                          setRefresh={setRefresh}
-                      />*/}
-                      </div>
-                      <div className="pt-2">
-                        <button
-                          type="button"
-                          onClick={() => handleOpenDeleteModal(admin.id)}
-                          className="font-medium text-red-600 hover:underline"
-                        >
-                          Delete admin
-                        </button>
-                        {/*<DeleteUserModal
-                          admin={admin}
-                          actualAdminId={actualAdminId}
-                          isDeleteModalOpen={isDeleteModalOpen}
-                          setIsDeleteModalOpen={setIsDeleteModalOpen}
-                          adminss={adminss}
-                          setAdmins={setAdmins}
-                      />*/}
                       </div>
                     </td>
                   </tr>

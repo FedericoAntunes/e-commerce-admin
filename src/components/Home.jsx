@@ -8,7 +8,6 @@ import OrderTable from "./partials/OrderTable";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
-  const [users, setUsers] = useState([]);
   const admin = useSelector((state) => state.user);
 
   const getProducts = async () => {
@@ -16,16 +15,13 @@ export default function Home() {
       Authorization: `Bearer ${admin.token}`,
     });
     setProducts(responseProducts);
-    const responseUser = await apiCall("/users", "get", null, {
-      Authorization: `Bearer ${admin.token}`,
-    });
-    setUsers(responseUser);
   };
   const lowerStockProducts = products.filter((item) => item.stock < 10);
   const featuredProducts = products.filter((item) => item.featured);
 
   useEffect(() => {
     getProducts();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -50,7 +46,7 @@ export default function Home() {
               <div className="flow-root">
                 {lowerStockProducts.map((product) => {
                   return (
-                    <ul role="list" className="divide-y divide-gray-200">
+                    <ul key={product.id} className="divide-y divide-gray-200">
                       <li className="py-3 sm:py-4">
                         <div className="flex items-center space-x-4">
                           <div className="flex-shrink-0">
@@ -62,7 +58,7 @@ export default function Home() {
                                   : process.env.REACT_APP_SERVER_DOMAIN +
                                     product.image
                               }
-                              alt="product-image"
+                              alt="product"
                             />
                           </div>
                           <div className="flex-1 min-w-0">
@@ -78,7 +74,7 @@ export default function Home() {
                             </div>
                           ) : (
                             <div className="inline-flex items-center text-base font-semibold">
-                              <span class="bg-orange-100 text-orange-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+                              <span className="bg-orange-100 text-orange-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
                                 {product.stock}
                               </span>
                             </div>
@@ -106,7 +102,7 @@ export default function Home() {
             <div className="flow-root">
               {featuredProducts.map((product) => {
                 return (
-                  <ul role="list" className="divide-y divide-gray-200">
+                  <ul key={product.id} className="divide-y divide-gray-200">
                     <li className="py-3 sm:py-4">
                       <div className="flex items-center space-x-4">
                         <>
@@ -119,7 +115,7 @@ export default function Home() {
                                   : process.env.REACT_APP_SERVER_DOMAIN +
                                     product.image
                               }
-                              alt="product-image"
+                              alt="product"
                             />
                           </div>
                           <div className="flex-1 min-w-0">
@@ -129,7 +125,7 @@ export default function Home() {
                           </div>
 
                           <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+                            <span className="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
                               Featured product!
                             </span>
                           </div>
