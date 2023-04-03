@@ -4,6 +4,7 @@ import apiCall from "./api/api";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import OrderTable from "./partials/OrderTable";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -140,6 +141,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <OrderTable />
     </>
   );
 }
