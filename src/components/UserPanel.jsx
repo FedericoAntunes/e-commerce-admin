@@ -42,7 +42,7 @@ function UserPanel() {
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-gray-200">
             <tr>
-              <th scope="col" className="pl-20 pr-6 py-3 text-center">
+              <th scope="col" className="pl-20 pr-6 py-3 text-left">
                 User
               </th>
               <th scope="col" className="px-6 py-3 text-center">
@@ -69,7 +69,7 @@ function UserPanel() {
                   >
                     <th
                       scope="row"
-                      className="flex items-center justify-center px-6 py-4 text-gray-900 whitespace-nowrap "
+                      className="flex px-6 py-4 text-gray-900 whitespace-nowrap "
                     >
                       <img
                         className="w-10 h-10 rounded-full"
