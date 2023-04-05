@@ -3,16 +3,14 @@ import apiCall from "./api/api";
 import DeleteProductModal from "./partials/DeleteProductModal";
 import EditProductModal from "./partials/EditProductModal";
 import { useSelector } from "react-redux";
-import CreateProductModal from "./partials/CreateProductModal";
 import Header from "./partials/Header/Header";
+import { Link } from "react-router-dom";
 
 export default function ProductPanel() {
   const [products, setProducts] = useState([]);
-  const [companies, setCompanies] = useState([]);
   const [categories, setCategories] = useState([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [actualProductId, setActualProductId] = useState({});
   const [refresh, setRefresh] = useState(true);
   const admin = useSelector((state) => state.user);
@@ -27,22 +25,13 @@ export default function ProductPanel() {
     return setIsDeleteModalOpen(!isDeleteModalOpen);
   }
 
-  function handleOpenCreateModal() {
-    return setIsCreateModalOpen(!isCreateModalOpen);
-  }
-
   const getProducts = async () => {
     const response = await apiCall("/products", "get", null, {
       Authorization: `Bearer ${admin.token}`,
     });
     setProducts(response);
   };
-  const getCompany = async () => {
-    const response = await apiCall("/companies", "get", null, {
-      Authorization: `Bearer ${admin.token}`,
-    });
-    setCompanies(response);
-  };
+
   const getCategories = async () => {
     const response = await apiCall("/categories", "get", null, {
       Authorization: `Bearer ${admin.token}`,
@@ -52,7 +41,6 @@ export default function ProductPanel() {
 
   useEffect(() => {
     getProducts();
-    getCompany();
     getCategories();
     // eslint-disable-next-line
   }, [refresh]);
@@ -62,20 +50,12 @@ export default function ProductPanel() {
       {products && (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <div className="flex justify-end m-10">
-            <button
-              onClick={() => handleOpenCreateModal()}
+            <Link
+              to="/create-product"
               className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
             >
               Add Product
-            </button>
-            <CreateProductModal
-              isCreateModalOpen={isCreateModalOpen}
-              setIsCreateModalOpen={setIsCreateModalOpen}
-              refresh={refresh}
-              setRefresh={setRefresh}
-              companies={companies}
-              categories={categories}
-            />
+            </Link>
           </div>
           <table className="w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-gray-700 uppercase bg-gray-200">

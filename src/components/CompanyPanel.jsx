@@ -4,14 +4,13 @@ import EditCompanyModal from "./partials/EditCompanyModal";
 import DeleteCompanyModal from "./partials/DeleteCompanyModal";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
-import CreateCompanyModal from "./partials/CreateCompanyModal";
 import Header from "./partials/Header/Header";
+import { Link } from "react-router-dom";
 
 function CompanyPanel() {
   const [companies, setCompanies] = useState([]);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
   const [actualCompanyId, setActualCompanyId] = useState({});
   const [refresh, setRefresh] = useState(true);
@@ -38,29 +37,17 @@ function CompanyPanel() {
     setIsDeleteModalOpen(!isDeleteModalOpen);
   }
 
-  function handleOpenCreateModal() {
-    setIsCreateModalOpen(!isCreateModalOpen);
-  }
-
   return (
     <>
       <Header />
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div className="flex justify-end m-10">
-          <button
-            onClick={() => handleOpenCreateModal()}
+          <Link
+            to="/create-company"
             className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
           >
             Add Company
-          </button>
-          {
-            <CreateCompanyModal
-              isCreateModalOpen={isCreateModalOpen}
-              setIsCreateModalOpen={setIsCreateModalOpen}
-              refresh={refresh}
-              setRefresh={setRefresh}
-            />
-          }
+          </Link>
         </div>
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-gray-200">
