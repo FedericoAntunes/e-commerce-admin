@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import apiCall from "./api/api";
-import EditCompanyModal from "./partials/EditCompanyModal";
 import DeleteCompanyModal from "./partials/DeleteCompanyModal";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
@@ -9,7 +8,6 @@ import { Link } from "react-router-dom";
 
 function CompanyPanel() {
   const [companies, setCompanies] = useState([]);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const [actualCompanyId, setActualCompanyId] = useState({});
@@ -28,10 +26,6 @@ function CompanyPanel() {
     // eslint-disable-next-line
   }, [refresh]);
 
-  function handleOpenEditModal(companyId) {
-    setActualCompanyId(companyId);
-    setIsEditModalOpen(!isEditModalOpen);
-  }
   function handleOpenDeleteModal(companyId) {
     setActualCompanyId(companyId);
     setIsDeleteModalOpen(!isDeleteModalOpen);
@@ -113,23 +107,13 @@ function CompanyPanel() {
                       </div>
                     </td>
                     <td className="px-6 py-4 text-center">
-                      {" "}
                       <div>
-                        <button
-                          type="button"
-                          onClick={() => handleOpenEditModal(company.id)}
+                        <Link
+                          to={`/edit-company/${company.slug}`}
                           className="font-medium text-blue-600 hover:underline"
                         >
                           Edit company
-                        </button>
-                        <EditCompanyModal
-                          company={company}
-                          actualCompanyId={actualCompanyId}
-                          isEditModalOpen={isEditModalOpen}
-                          setIsEditModalOpen={setIsEditModalOpen}
-                          refresh={refresh}
-                          setRefresh={setRefresh}
-                        />
+                        </Link>
                       </div>
                       <div className="pt-2">
                         <button
