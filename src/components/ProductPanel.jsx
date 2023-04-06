@@ -52,10 +52,10 @@ export default function ProductPanel() {
                 <th scope="col" className="pl-6 pr-6 py-3 text-center">
                   Category
                 </th>
-                <th scope="col" className="pl-20 pr-6 py-3 w-1/3">
+                <th scope="col" className="px-6 py-3 w-1/3 text-center">
                   Description
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6 py-3 text-center">
                   Company
                 </th>
                 <th scope="col" className="px-6 py-3 text-center">
@@ -111,14 +111,20 @@ export default function ProductPanel() {
                         {product.category.name}
                       </td>
                       <td className="px-6 py-4 ">
-                        <div className="font-normal text-gray-500">
-                          <p>{product.description}</p>
-                        </div>
+                        {product.description === "" ? (
+                          <p className="font-normal text-gray-500">
+                            No description.
+                          </p>
+                        ) : (
+                          <p className="font-normal text-gray-500">
+                            {product.description}
+                          </p>
+                        )}
                       </td>
                       <td className="px-6 py-4">
-                        <div className="font-normal text-gray-500">
+                        <p className="font-normal text-gray-500 text-center">
                           {product.company.name}
-                        </div>
+                        </p>
                       </td>
                       {product.in_offer ? (
                         <td className="px-6 py-4 text-center">Yes</td>

@@ -45,7 +45,7 @@ function CompanyPanel() {
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-gray-200">
             <tr>
-              <th scope="col" className="pl-20 pr-6 py-3 text-center w-1/5">
+              <th scope="col" className="pl-20 pr-6 py-3 w-1/5">
                 Company
               </th>
               <th scope="col" className="pl-6 pr-6 py-3 text-center">
@@ -67,70 +67,66 @@ function CompanyPanel() {
                     key={company.id}
                     className="bg-white border-b hover:bg-gray-200"
                   >
-                    <th
-                      scope="row"
-                      className="flex h-full justify-center items-center px-6 py-4 text-gray-900 "
-                    >
-                      <img
-                        className="w-16 h-16"
-                        src={
-                          company.logo.substring(0, 4) === "http"
-                            ? company.logo
-                            : process.env.REACT_APP_SERVER_DOMAIN + company.logo
-                        }
-                        alt="company-logo"
-                      />
-                      <div key={company.id} className="pl-3">
-                        <div className="text-base font-semibold">
-                          {company.name}
-                        </div>
-                      </div>
-                    </th>
-                    <td>
-                      <div className="font-normal text-gray-500 text-center">
+                    <th scope="row" className="">
+                      <span className="flex text-base font-semibold text-gray-900">
                         <img
-                          className="w-16 h-16"
+                          className="w-10 h-10 rounded-full mx-2 my-auto"
                           src={
-                            company.background.substring(0, 4) === "http"
-                              ? company.background
+                            company.logo.substring(0, 4) === "http"
+                              ? company.logo
                               : process.env.REACT_APP_SERVER_DOMAIN +
-                                company.background
+                                company.logo
                           }
-                          alt="company-background"
-                        />{" "}
-                      </div>
-                    </td>
-                    <td>
-                      <div className="font-normal text-gray-500 text-center py-4">
-                        {company.description}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-center">
-                      <div>
-                        <Link
-                          to={`/edit-company/${company.slug}`}
-                          className="font-medium text-blue-600 hover:underline"
-                        >
-                          Edit company
-                        </Link>
-                      </div>
-                      <div className="pt-2">
-                        <button
-                          type="button"
-                          onClick={() => handleOpenDeleteModal(company.id)}
-                          className="font-medium text-red-600 hover:underline"
-                        >
-                          Delete company
-                        </button>
-                        <DeleteCompanyModal
-                          company={company}
-                          actualCompanyId={actualCompanyId}
-                          isDeleteModalOpen={isDeleteModalOpen}
-                          setIsDeleteModalOpen={setIsDeleteModalOpen}
-                          companies={companies}
-                          setCompanies={setCompanies}
+                          alt="company"
                         />
-                      </div>
+                        <span className="my-auto px-2">{company.name}</span>
+                      </span>
+                    </th>
+                    <td className="px-6 py-4">
+                      <img
+                        className="w-16 h-16 mx-auto"
+                        src={
+                          company.background.substring(0, 4) === "http"
+                            ? company.background
+                            : process.env.REACT_APP_SERVER_DOMAIN +
+                              company.background
+                        }
+                        alt="company"
+                      />
+                    </td>
+                    <td className="px-6 py-4">
+                      {company.description === "" ? (
+                        <p className="font-normal text-gray-500 text-left">
+                          No description.
+                        </p>
+                      ) : (
+                        <p className="font-normal text-gray-500 text-left">
+                          {company.description}
+                        </p>
+                      )}
+                    </td>
+                    <td className="px-6 py-4 text-left">
+                      <Link
+                        to={`/edit-company/${company.slug}`}
+                        className="font-medium text-blue-600 hover:underline"
+                      >
+                        Edit company
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() => handleOpenDeleteModal(company.id)}
+                        className="font-medium text-red-600 hover:underline mt-2"
+                      >
+                        Delete company
+                      </button>
+                      <DeleteCompanyModal
+                        company={company}
+                        actualCompanyId={actualCompanyId}
+                        isDeleteModalOpen={isDeleteModalOpen}
+                        setIsDeleteModalOpen={setIsDeleteModalOpen}
+                        companies={companies}
+                        setCompanies={setCompanies}
+                      />
                     </td>
                   </tr>
                 )
