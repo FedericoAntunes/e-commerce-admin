@@ -9,7 +9,6 @@ export default function ProductPanel() {
   const [products, setProducts] = useState([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [actualProductId, setActualProductId] = useState({});
-  const [refresh, setRefresh] = useState(true);
   const admin = useSelector((state) => state.user);
 
   function handleOpenDeleteModal(productId) {
@@ -27,7 +26,7 @@ export default function ProductPanel() {
   useEffect(() => {
     getProducts();
     // eslint-disable-next-line
-  }, [refresh]);
+  }, []);
   return (
     <>
       <Header />
@@ -60,7 +59,7 @@ export default function ProductPanel() {
                   Company
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Featured
+                  In offer
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Stock
@@ -125,7 +124,7 @@ export default function ProductPanel() {
                           {product.company.name}
                         </div>
                       </td>
-                      {product.featured ? (
+                      {product.in_offer ? (
                         <td className="px-6 py-4 text-center">Yes</td>
                       ) : (
                         <td className="px-6 py-4 text-center">No</td>
@@ -154,8 +153,8 @@ export default function ProductPanel() {
                             actualProductId={actualProductId}
                             isDeleteModalOpen={isDeleteModalOpen}
                             setIsDeleteModalOpen={setIsDeleteModalOpen}
-                            refresh={refresh}
-                            setRefresh={setRefresh}
+                            products={products}
+                            setProducts={setProducts}
                           />
                         </div>
                       </td>

@@ -6,8 +6,8 @@ function DeleteCompanyModal({
   actualCompanyId,
   isDeleteModalOpen,
   setIsDeleteModalOpen,
-  refresh,
-  setRefresh,
+  companies,
+  setCompanies,
 }) {
   const admin = useSelector((state) => state.user);
 
@@ -15,7 +15,7 @@ function DeleteCompanyModal({
     await apiCall(`/companies/${companyId}`, "delete", null, {
       Authorization: `Bearer ${admin.token}`,
     });
-    setRefresh(!refresh);
+    setCompanies(companies.filter((item) => item.id !== company.id));
     return setIsDeleteModalOpen(!isDeleteModalOpen);
   }
 

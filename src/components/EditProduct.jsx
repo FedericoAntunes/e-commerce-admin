@@ -11,7 +11,7 @@ function EditProduct() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
-  const [featured, setFeatured] = useState(null);
+  const [in_offer, setIn_offer] = useState(null);
   const [stock, setStock] = useState(0);
   const [image, setImage] = useState("");
   const [logo, setLogo] = useState("");
@@ -29,7 +29,7 @@ function EditProduct() {
     setProduct(productData);
     setCategoryId(productData.categoryId);
     setDescription(productData.description);
-    setFeatured(productData.featured);
+    setIn_offer(productData.in_offer);
     setImage(productData.image);
     setLogo(productData.logo);
     setPrice(productData.price);
@@ -54,7 +54,7 @@ function EditProduct() {
     formData.append("title", title);
     formData.append("price", price);
     formData.append("description", description);
-    formData.append("featured", featured);
+    formData.append("in_offer", in_offer);
     formData.append("image", image);
     formData.append("logo", logo);
     formData.append("stock", stock);
@@ -193,13 +193,13 @@ function EditProduct() {
                       htmlFor="product-feature"
                       className="block mb-2 text-sm font-medium text-gray-900"
                     >
-                      Featured
+                      In offer
                     </label>
                     <select
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                       name="select"
-                      onChange={(event) => setFeatured(event.target.value)}
-                      defaultValue={`${product.featured}`}
+                      onChange={(event) => setIn_offer(event.target.value)}
+                      defaultValue={`${product.in_offer}`}
                     >
                       <option value="false">false</option>
                       <option value="true">true</option>
@@ -247,7 +247,7 @@ function EditProduct() {
                     setTitle(product.title),
                     setPrice(product.price),
                     setDescription(product.description),
-                    setFeatured(product.featured),
+                    setIn_offer(product.in_offer),
                     setStock(product.stock),
                     setImage(product.image),
                     setLogo(product.logo),

@@ -8,7 +8,7 @@ function CreateProduct() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [featured, setFeatured] = useState("");
+  const [in_offer, setIn_offer] = useState("");
   const [stock, setStock] = useState("");
   const [image, setImage] = useState("");
   const [logo, setLogo] = useState("");
@@ -47,7 +47,7 @@ function CreateProduct() {
     formData.append("title", title);
     formData.append("price", price);
     formData.append("description", description);
-    formData.append("featured", featured);
+    formData.append("in_offer", in_offer);
     formData.append("image", image);
     formData.append("logo", logo);
     formData.append("stock", stock);
@@ -77,7 +77,7 @@ function CreateProduct() {
       setTitle("");
       setCategoryId("");
       setDescription("");
-      setFeatured("");
+      setIn_offer("");
       setImage("");
       setLogo("");
       setPrice("");
@@ -217,15 +217,15 @@ function CreateProduct() {
                     htmlFor="product-feature"
                     className="block mb-2 text-sm font-medium text-gray-900"
                   >
-                    Featured
+                    In offer
                   </label>
                   <select
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     name="select"
-                    onChange={(event) => setFeatured(event.target.value)}
+                    onChange={(event) => setIn_offer(event.target.value)}
                   >
                     <option value="" selected disabled hidden>
-                      Choose if the product is featured
+                      Choose if the product is in_offer
                     </option>
                     <option value="false">false</option>
                     <option value="true">true</option>
@@ -274,7 +274,7 @@ function CreateProduct() {
                   setTitle(""),
                   setPrice(""),
                   setDescription(""),
-                  setFeatured(""),
+                  setIn_offer(""),
                   setStock(""),
                   setImage(""),
                   setLogo(""),

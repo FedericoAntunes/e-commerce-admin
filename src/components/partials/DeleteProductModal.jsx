@@ -6,8 +6,8 @@ function DeleteProductModal({
   actualProductId,
   isDeleteModalOpen,
   setIsDeleteModalOpen,
-  refresh,
-  setRefresh,
+  products,
+  setProducts,
 }) {
   const admin = useSelector((state) => state.user);
 
@@ -15,7 +15,7 @@ function DeleteProductModal({
     await apiCall(`/products/${productId}`, "delete", null, {
       Authorization: `Bearer ${admin.token}`,
     });
-    setRefresh(!refresh);
+    setProducts(products.filter((item) => item.id !== product.id));
     return setIsDeleteModalOpen(!isDeleteModalOpen);
   }
 

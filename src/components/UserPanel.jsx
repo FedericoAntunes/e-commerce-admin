@@ -10,7 +10,6 @@ function UserPanel() {
   const [users, setUsers] = useState([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [actualUserId, setActualUserId] = useState({});
-  const [refresh, setRefresh] = useState(true);
   const admin = useSelector((state) => state.user);
 
   const getUsers = async () => {
@@ -23,7 +22,7 @@ function UserPanel() {
   useEffect(() => {
     getUsers();
     // eslint-disable-next-line
-  }, [refresh]);
+  }, []);
 
   function handleOpenDeleteModal(userId) {
     setActualUserId(userId);
@@ -117,8 +116,8 @@ function UserPanel() {
                           actualUserId={actualUserId}
                           isDeleteModalOpen={isDeleteModalOpen}
                           setIsDeleteModalOpen={setIsDeleteModalOpen}
-                          refresh={refresh}
-                          setRefresh={setRefresh}
+                          users={users}
+                          setUsers={setUsers}
                         />
                       </div>
                     </td>

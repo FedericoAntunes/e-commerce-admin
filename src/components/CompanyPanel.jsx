@@ -11,7 +11,6 @@ function CompanyPanel() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const [actualCompanyId, setActualCompanyId] = useState({});
-  const [refresh, setRefresh] = useState(true);
   const admin = useSelector((state) => state.user);
 
   const getCompanies = async () => {
@@ -24,7 +23,7 @@ function CompanyPanel() {
   useEffect(() => {
     getCompanies();
     // eslint-disable-next-line
-  }, [refresh]);
+  }, []);
 
   function handleOpenDeleteModal(companyId) {
     setActualCompanyId(companyId);
@@ -128,8 +127,8 @@ function CompanyPanel() {
                           actualCompanyId={actualCompanyId}
                           isDeleteModalOpen={isDeleteModalOpen}
                           setIsDeleteModalOpen={setIsDeleteModalOpen}
-                          refresh={refresh}
-                          setRefresh={setRefresh}
+                          companies={companies}
+                          setCompanies={setCompanies}
                         />
                       </div>
                     </td>

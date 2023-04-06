@@ -17,7 +17,7 @@ export default function Home() {
     setProducts(responseProducts);
   };
   const lowerStockProducts = products.filter((item) => item.stock < 10);
-  const featuredProducts = products.filter((item) => item.featured);
+  const in_offerProducts = products.filter((item) => item.in_offer);
 
   useEffect(() => {
     getProducts();
@@ -90,7 +90,7 @@ export default function Home() {
           <div className=" w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
             <div className="flex items-center justify-between mb-4">
               <h5 className="text-xl font-bold leading-none text-gray-900">
-                Featured products
+                In offer products
               </h5>
               <Link
                 to="/product-panel"
@@ -100,7 +100,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="flow-root">
-              {featuredProducts.map((product) => {
+              {in_offerProducts.map((product) => {
                 return (
                   <ul key={product.id} className="divide-y divide-gray-200">
                     <li className="py-3 sm:py-4">
@@ -126,7 +126,7 @@ export default function Home() {
 
                           <div className="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                             <span className="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
-                              Featured product!
+                              In offer!
                             </span>
                           </div>
                         </>
