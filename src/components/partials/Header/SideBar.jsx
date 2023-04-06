@@ -19,10 +19,10 @@ export default function SideBar() {
 
   return (
     <>
-      <div className="relative z-10 opacity-90 text-start pt-4 pl-4 rounded">
+      <div className="relative z-10 opacity-90 text-start pl-4 rounded">
         <button
           onClick={() => handleSideBar()}
-          className=" fixed w-fit flex items-center p-2 text-gray-900 rounded-lg"
+          className=" fixed w-fit flex items-center p-2 text-gray-900 rounded-lg pt-6"
         >
           <svg
             aria-hidden="true"
@@ -152,16 +152,18 @@ export default function SideBar() {
                   className="flex items-center p-2 text-gray-900 rounded-lg"
                 >
                   <svg
-                    aria-hidden="true"
+                    fill="none"
                     className="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
                   >
                     <path
-                      fillRule="evenodd"
-                      d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
-                      clipRule="evenodd"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"
                     ></path>
                   </svg>
                   <span className="flex-1 ml-3 whitespace-nowrap">

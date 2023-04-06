@@ -31,7 +31,7 @@ export default function ProductPanel() {
     <>
       <Header />
       {products && (
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-20">
           <div className="flex justify-end m-10">
             <Link
               to="/create-product"
@@ -46,7 +46,7 @@ export default function ProductPanel() {
                 <th scope="col" className="pl-20 pr-6 py-3 w-1/5">
                   Name
                 </th>
-                <th scope="col" className="pl-6 pr-6 py-3 text-center">
+                <th scope="col" className="pl-6 pr-6 py-3">
                   Logo
                 </th>
                 <th scope="col" className="pl-6 pr-6 py-3 text-center">
@@ -80,28 +80,24 @@ export default function ProductPanel() {
                       key={product.id}
                       className="bg-white border-b hover:bg-gray-200"
                     >
-                      <th
-                        scope="row"
-                        className="flex items-center px-6 py-4 text-gray-900"
-                      >
-                        <img
-                          className="w-10 h-10 rounded-full"
-                          src={
-                            product.image.substring(0, 4) === "http"
-                              ? product.image
-                              : process.env.REACT_APP_SERVER_DOMAIN +
-                                product.image
-                          }
-                          alt="product"
-                        />
-
-                        <div className="text-base font-semibold mx-4">
-                          {product.title}
-                        </div>
+                      <th scope="row" className="">
+                        <span className="flex text-base font-semibold text-gray-900">
+                          <img
+                            className="w-10 h-10 rounded-full mx-2 my-auto"
+                            src={
+                              product.image.substring(0, 4) === "http"
+                                ? product.image
+                                : process.env.REACT_APP_SERVER_DOMAIN +
+                                  product.image
+                            }
+                            alt="product"
+                          />
+                          <span className="my-auto px-2">{product.title}</span>
+                        </span>
                       </th>
-                      <td className="px-6 py-4 mx-auto">
+                      <td>
                         <img
-                          className="w-16 h-16"
+                          className="w-16 h-16 mx-auto"
                           src={
                             product.logo.substring(0, 4) === "http"
                               ? product.logo
@@ -144,7 +140,7 @@ export default function ProductPanel() {
                           <button
                             onClick={() => handleOpenDeleteModal(product.id)}
                             type="button"
-                            className="font-medium text-red-600 hover:underline"
+                            className="font-medium text-red-600 hover:underline text-left"
                           >
                             Delete product
                           </button>

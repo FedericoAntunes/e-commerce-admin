@@ -22,9 +22,9 @@ export default function Header() {
   }
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900">
+    <nav className="bg-white border-gray-200 dark:bg-gray-900 border-b fixed top-0 w-full z-40">
       <SideBar />
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1">
+      <div className="max-w-screen-xl flex flex-wrap items-center my-auto">
         <div onClick={notify} className="m-auto py-4 bg-white w-fit">
           <label htmlFor="table-search" className="sr-only">
             Search
@@ -68,7 +68,6 @@ export default function Header() {
                       : process.env.REACT_APP_SERVER_DOMAIN + admin.avatar
                   }
                   rounded={true}
-                  className="pt-2 pr-1"
                 />
               }
             >
@@ -87,27 +86,6 @@ export default function Header() {
               </Dropdown.Item>
             </Dropdown>
           ) : null}
-
-          <button
-            data-collapse-toggle="mobile-menu-2"
-            type="button"
-            className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-6 h-6"
-              aria-hidden="true"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </button>
         </div>
       </div>
     </nav>

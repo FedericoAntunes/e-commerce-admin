@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="flex content-center justify-center flex-wrap mt-10">
+      <div className="flex content-center justify-center flex-wrap mt-20">
         <div className="flex">
           <div>
             <GrandielChart />
@@ -87,7 +87,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className=" w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
+          <div className="mt-10 w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
             <div className="flex items-center justify-between mb-4">
               <h5 className="text-xl font-bold leading-none text-gray-900">
                 In offer products
