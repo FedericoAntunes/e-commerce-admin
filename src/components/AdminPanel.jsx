@@ -24,7 +24,7 @@ function AdminPanel() {
   return (
     <>
       <Header />
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-20">
         <div className="flex justify-end m-10">
           <Link
             to={"/create-admin"}
