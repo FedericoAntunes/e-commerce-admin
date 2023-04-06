@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
 import Header from "./partials/Header/Header";
 import { Link } from "react-router-dom";
+import ScrollToTop from "./partials/ScrollToTop";
 
 function CompanyPanel() {
   const [companies, setCompanies] = useState([]);
@@ -135,6 +136,7 @@ function CompanyPanel() {
           </tbody>
         </table>
       </div>
+      <ScrollToTop />
     </>
   );
 }

@@ -4,6 +4,7 @@ import DeleteProductModal from "./partials/DeleteProductModal";
 import { useSelector } from "react-redux";
 import Header from "./partials/Header/Header";
 import { Link } from "react-router-dom";
+import ScrollToTop from "./partials/ScrollToTop";
 
 export default function ProductPanel() {
   const [products, setProducts] = useState([]);
@@ -166,6 +167,7 @@ export default function ProductPanel() {
           </table>
         </div>
       )}
+      <ScrollToTop />
     </>
   );
 }

@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
 import Header from "./partials/Header/Header";
 import { Link } from "react-router-dom";
+import ScrollToTop from "./partials/ScrollToTop";
 
 function UserPanel() {
   const [users, setUsers] = useState([]);
@@ -128,6 +129,7 @@ function UserPanel() {
           </tbody>
         </table>
       </div>
+      <ScrollToTop />
     </>
   );
 }

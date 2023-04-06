@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import OrderTable from "./partials/Home/OrderTable";
 import Header from "./partials/Header/Header";
 import BarChart from "./partials/Home/BarChart";
+import ScrollToTop from "./partials/ScrollToTop";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -143,6 +144,7 @@ export default function Home() {
         </div>
       </div>
       <OrderTable />
+      <ScrollToTop />
     </>
   );
 }
