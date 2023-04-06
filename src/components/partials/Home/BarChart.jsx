@@ -65,7 +65,7 @@ export default class Example extends PureComponent {
           data={data}
           margin={{ top: 50, right: 100, left: 50, bottom: 0 }}
         >
-          <Bar dataKey="uv" fill="#8884d8" name="visitors by month" />
+          <Bar dataKey="uv" fill="#8884d8" name="Visitors by month" />
           <Legend verticalAlign="top" height={36} />
           <XAxis dataKey="name" />
           <YAxis dataKey="uv" />
