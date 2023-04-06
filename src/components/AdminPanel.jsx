@@ -74,7 +74,7 @@ function AdminPanel() {
                       </div>
                     </td>
                     <td className="px-6 py-4 text-gray-500 text-center">
-                      {admin.adminname}
+                      {admin.username}
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center justify-center">
