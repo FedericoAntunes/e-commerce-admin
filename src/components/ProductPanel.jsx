@@ -1,24 +1,16 @@
 import { useState, useEffect } from "react";
 import apiCall from "./api/api";
 import DeleteProductModal from "./partials/DeleteProductModal";
-import EditProductModal from "./partials/EditProductModal";
 import { useSelector } from "react-redux";
 import Header from "./partials/Header/Header";
 import { Link } from "react-router-dom";
 
 export default function ProductPanel() {
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [actualProductId, setActualProductId] = useState({});
   const [refresh, setRefresh] = useState(true);
   const admin = useSelector((state) => state.user);
-
-  function handleOpenEditModal(productId) {
-    setActualProductId(productId);
-    return setIsEditModalOpen(!isEditModalOpen);
-  }
 
   function handleOpenDeleteModal(productId) {
     setActualProductId(productId);
@@ -32,16 +24,8 @@ export default function ProductPanel() {
     setProducts(response);
   };
 
-  const getCategories = async () => {
-    const response = await apiCall("/categories", "get", null, {
-      Authorization: `Bearer ${admin.token}`,
-    });
-    setCategories(response);
-  };
-
   useEffect(() => {
     getProducts();
-    getCategories();
     // eslint-disable-next-line
   }, [refresh]);
   return (
@@ -150,22 +134,12 @@ export default function ProductPanel() {
                       <td className="px-6 py-4">${product.price}</td>
                       <td className="px-6 py-4">
                         <div>
-                          <button
-                            onClick={() => handleOpenEditModal(product.id)}
-                            type="button"
+                          <Link
+                            to={`/edit-product/${product.id}`}
                             className="font-medium text-blue-600 hover:underline"
                           >
                             Edit product
-                          </button>
-                          <EditProductModal
-                            product={product}
-                            actualProductId={actualProductId}
-                            isEditModalOpen={isEditModalOpen}
-                            setIsEditModalOpen={setIsEditModalOpen}
-                            refresh={refresh}
-                            setRefresh={setRefresh}
-                            categories={categories}
-                          />
+                          </Link>
                         </div>
                         <div className="pt-2">
                           <button

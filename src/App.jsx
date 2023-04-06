@@ -13,6 +13,7 @@ import CreateAdmin from "./components/CreateAdmin";
 import CreateCompany from "./components/CreateCompany";
 import CreateProduct from "./components/CreateProduct";
 import EditCompany from "./components/EditCompany";
+import EditProduct from "./components/EditProduct";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/create-company" element={<CreateCompany />} />
           <Route path="/edit-company/:slug" element={<EditCompany />} />
           <Route path="/create-product" element={<CreateProduct />} />
+          <Route path="/edit-product/:id" element={<EditProduct />} />
         </Route>
         <Route element={<ProtectedPublicRoute redirectPath={"/"} />}>
           <Route path="/login" element={<Login />} />
