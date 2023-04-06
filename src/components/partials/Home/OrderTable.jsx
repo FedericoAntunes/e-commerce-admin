@@ -28,7 +28,7 @@ function OrderTable() {
   return (
     <>
       <div className="my-10 relative overflow-x-auto shadow-md sm:rounded-lg">
-        <h1>Order List</h1>
+        <h1>Latest orders</h1>
         <div onClick={notify} className="m-auto py-4 bg-white w-fit">
           <label htmlFor="table-search" className="sr-only">
             Search

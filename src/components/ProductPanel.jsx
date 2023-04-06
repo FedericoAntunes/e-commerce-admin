@@ -31,7 +31,7 @@ export default function ProductPanel() {
     <>
       <Header />
       {products && (
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-20">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-16">
           <div className="flex justify-end m-10">
             <Link
               to="/create-product"

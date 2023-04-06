@@ -32,7 +32,7 @@ function UserPanel() {
   return (
     <>
       <Header />
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-20">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-16">
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-gray-200">
             <tr>

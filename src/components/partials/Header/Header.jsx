@@ -25,7 +25,7 @@ export default function Header() {
     <nav className="bg-white border-gray-200 dark:bg-gray-900 border-b fixed top-0 w-full z-40">
       <SideBar />
       <div className="max-w-screen-xl flex flex-wrap items-center my-auto">
-        <div onClick={notify} className="m-auto py-4 bg-white w-fit">
+        <div onClick={notify} className="m-auto py-4 w-fit">
           <label htmlFor="table-search" className="sr-only">
             Search
           </label>
