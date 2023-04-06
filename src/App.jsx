@@ -14,6 +14,7 @@ import CreateCompany from "./components/CreateCompany";
 import CreateProduct from "./components/CreateProduct";
 import EditCompany from "./components/EditCompany";
 import EditProduct from "./components/EditProduct";
+import EditUser from "./components/EditUser";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route element={<ProtectedPrivateRoute redirectPath={"/login"} />}>
           <Route path="/" element={<Home />} />
           <Route path="/user-panel" element={<UserPanel />} />
+          <Route path="/edit-user/:id" element={<EditUser />} />
           <Route path="/product-panel" element={<ProductPanel />} />
           <Route path="/company-panel" element={<CompanyPanel />} />
           <Route path="/admin-panel" element={<AdminPanel />} />

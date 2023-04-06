@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import apiCall from "./api/api";
-import EditUserModal from "./partials/EditUserModal";
 import DeleteUserModal from "./partials/DeleteUserModal";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
 import Header from "./partials/Header/Header";
+import { Link } from "react-router-dom";
 
 function UserPanel() {
   const [users, setUsers] = useState([]);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [actualUserId, setActualUserId] = useState({});
   const [refresh, setRefresh] = useState(true);
@@ -26,10 +25,6 @@ function UserPanel() {
     // eslint-disable-next-line
   }, [refresh]);
 
-  function handleOpenModal(userId) {
-    setActualUserId(userId);
-    return setIsEditModalOpen(!isEditModalOpen);
-  }
   function handleOpenDeleteModal(userId) {
     setActualUserId(userId);
     return setIsDeleteModalOpen(!isDeleteModalOpen);
@@ -101,23 +96,13 @@ function UserPanel() {
                       </div>
                     </td>
                     <td className="px-6 py-4 text-center">
-                      {" "}
                       <div>
-                        <button
-                          type="button"
-                          onClick={() => handleOpenModal(user.id)}
+                        <Link
+                          to={`/edit-user/${user.id}`}
                           className="font-medium text-blue-600 hover:underline"
                         >
                           Edit user
-                        </button>
-                        <EditUserModal
-                          user={user}
-                          actualUserId={actualUserId}
-                          isEditModalOpen={isEditModalOpen}
-                          setIsEditModalOpen={setIsEditModalOpen}
-                          refresh={refresh}
-                          setRefresh={setRefresh}
-                        />
+                        </Link>
                       </div>
                       <div className="pt-2">
                         <button
