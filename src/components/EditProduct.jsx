@@ -136,14 +136,15 @@ function EditProduct() {
                     >
                       Description
                     </label>
-                    <input
+                    <textarea
                       id="product-description"
                       type="text"
                       name="product-description"
-                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 h-20 overflow-y-scroll"
                       placeholder={`${product.description}`}
                       value={description}
                       onChange={(event) => setDescription(event.target.value)}
+                      style={{ resize: "none" }}
                     />
                   </div>
                   <div className="col-span-6 sm:col-span-3">

@@ -89,7 +89,7 @@ function CreateProduct() {
 
   return (
     <>
-      <div className="h-fit w-fit m-auto mt-10 h-auto fixed top-0 left-0 right-0 z-50 items-center justify-center p-4 overflow-y-auto md:inset-0">
+      <div className="h-fit w-fit m-auto fixed top-0 left-0 right-0 z-50 items-center justify-center p-4 overflow-y-auto md:inset-0">
         <div className=" relative w-auto mx-auto h-full max-w-2xl md:h-auto lg:w-[100rem]   ">
           <form
             onSubmit={handleCreateProduct}
@@ -186,13 +186,14 @@ function CreateProduct() {
                   >
                     Description
                   </label>
-                  <input
+                  <textarea
                     id="product-description"
                     type="text"
                     name="product-description"
-                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 h-20 overflow-y-scroll"
                     value={description}
                     onChange={(event) => setDescription(event.target.value)}
+                    style={{ resize: "none" }}
                   />
                 </div>
                 <div className="col-span-6 sm:col-span-3">

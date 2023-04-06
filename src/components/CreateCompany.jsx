@@ -86,13 +86,14 @@ function CreateCompany() {
                   >
                     Description
                   </label>
-                  <input
+                  <textarea
                     id="company-description"
                     type="text"
                     name="company-description"
-                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 h-20 overflow-y-scroll"
                     value={description}
                     onChange={(event) => setDescription(event.target.value)}
+                    style={{ resize: "none" }}
                   />
                 </div>
 
