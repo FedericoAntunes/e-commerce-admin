@@ -58,7 +58,7 @@ export default function ProductPanel() {
                 <th scope="col" className="px-6 py-3">
                   Company
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6 py-3 text-center">
                   In offer
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -67,7 +67,7 @@ export default function ProductPanel() {
                 <th scope="col" className="px-6 py-3">
                   Price
                 </th>
-                <th scope="col" className="text-center px-6 py-3">
+                <th scope="col" className="px-6 py-3">
                   Action
                 </th>
               </tr>
@@ -126,33 +126,31 @@ export default function ProductPanel() {
                         <td className="px-6 py-4 text-center">No</td>
                       )}
                       <td className="px-6 py-4 text-center">{product.stock}</td>
-                      <td className="px-6 py-4">${product.price}</td>
+                      <td className="px-6 py-4 text-center">
+                        ${product.price}
+                      </td>
                       <td className="px-6 py-4">
-                        <div>
-                          <Link
-                            to={`/edit-product/${product.id}`}
-                            className="font-medium text-blue-600 hover:underline"
-                          >
-                            Edit product
-                          </Link>
-                        </div>
-                        <div className="pt-2">
-                          <button
-                            onClick={() => handleOpenDeleteModal(product.id)}
-                            type="button"
-                            className="font-medium text-red-600 hover:underline text-left"
-                          >
-                            Delete product
-                          </button>
-                          <DeleteProductModal
-                            product={product}
-                            actualProductId={actualProductId}
-                            isDeleteModalOpen={isDeleteModalOpen}
-                            setIsDeleteModalOpen={setIsDeleteModalOpen}
-                            products={products}
-                            setProducts={setProducts}
-                          />
-                        </div>
+                        <Link
+                          to={`/edit-product/${product.id}`}
+                          className="font-medium text-blue-600 hover:underline"
+                        >
+                          Edit product
+                        </Link>
+                        <button
+                          onClick={() => handleOpenDeleteModal(product.id)}
+                          type="button"
+                          className="font-medium text-red-600 hover:underline text-left mt-2"
+                        >
+                          Delete product
+                        </button>
+                        <DeleteProductModal
+                          product={product}
+                          actualProductId={actualProductId}
+                          isDeleteModalOpen={isDeleteModalOpen}
+                          setIsDeleteModalOpen={setIsDeleteModalOpen}
+                          products={products}
+                          setProducts={setProducts}
+                        />
                       </td>
                     </tr>
                   )
