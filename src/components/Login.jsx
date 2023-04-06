@@ -31,8 +31,8 @@ function Login() {
     navigate("/");
   };
   return (
-    <section className="bg-gray-100">
-      <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen ">
+    <section className="bg-gradient-to-r from-yellow-300 to-yellow-500">
+      <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen">
         <Link
           to="/about-us"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
@@ -43,10 +43,10 @@ function Login() {
             alt="logo"
           />
         </Link>
-        <div className="sm:w-full bg-white rounded-lg shadow md:mt-0 lg:w-1/4 py-6">
+        <div className="sm:w-full bg-gray-100 rounded-lg shadow md:mt-0 lg:w-1/4 py-6 ">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
-              Sign in to your account
+              Sign in to your admin account
             </h1>
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
@@ -116,15 +116,6 @@ function Login() {
               >
                 Sign in
               </button>
-              <p className="text-sm font-light text-black ">
-                Don’t have an account yet?
-                <Link
-                  to="/register"
-                  className="font-medium text-blue-500 hover:underline ml-1"
-                >
-                  Sign up
-                </Link>
-              </p>
             </form>
           </div>
         </div>
