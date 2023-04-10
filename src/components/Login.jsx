@@ -12,11 +12,18 @@ function Login() {
   const dispatch = useDispatch();
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
-  
+
   const handleFillInputs = () => {
     setInputEmail("admin@hotmail.com");
     setInputPassword("123");
   };
+
+  async function handleRunSeeders(event) {
+    event.preventDefault();
+
+    await apiCall(`/seeders`, "get");
+    return "seeders!";
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,8 +44,6 @@ function Login() {
       })
     );
     navigate("/");
-
-  
   };
   return (
     <section className="bg-gradient-to-r from-yellow-300 to-yellow-500">
@@ -141,6 +146,16 @@ function Login() {
                 >
                   <FontAwesomeIcon icon={faPencilAlt} className="mr-2" />
                   Fill Inputs
+                </button>
+              </div>
+              <div className="flex justify-center text-sm font-medium">
+                <button
+                  className="px-4 py-2 rounded-md text-white bg-blue-500 md:hover:bg-blue-600 focus:bg-blue-600 transition-colors"
+                  type="button"
+                  onClick={handleRunSeeders}
+                >
+                  <FontAwesomeIcon icon={faPencilAlt} className="mr-2" />
+                  Run Seeders
                 </button>
               </div>
               <button
