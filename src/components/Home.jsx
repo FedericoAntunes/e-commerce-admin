@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="flex mt-16 bg-gray-100 mx-auto">
+      <div className="flex mt-16 bg-gray-100 mx-auto flex-wrap justify-center w-full">
         <div className="columns-1">
           <GrandielChart />
           <BarChart />
@@ -90,7 +90,6 @@ export default function Home() {
               })}
             </div>
           </div>
-
           <div className="m-4 w-full h-fit max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
             <div className="flex items-center justify-between mb-4">
               <h5 className="text-xl font-bold leading-none text-gray-900">
@@ -142,8 +141,8 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <OrderTable />
       </div>
-      <OrderTable />
       <ScrollToTop />
     </>
   );
