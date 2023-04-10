@@ -18,7 +18,7 @@ export default function Home() {
     });
     setProducts(responseProducts);
   };
-  const lowerStockProducts = products.filter((item) => item.stock < 10);
+  const lowerStockProducts = products.filter((item) => item.stock < 5);
   const in_offerProducts = products.filter((item) => item.in_offer);
 
   useEffect(() => {
