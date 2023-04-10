@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="flex mt-16 bg-gray-100">
+      <div className="flex mt-16 bg-gray-100 mx-auto">
         <div className="columns-1">
           <GrandielChart />
           <BarChart />
