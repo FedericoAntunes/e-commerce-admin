@@ -61,7 +61,7 @@ function EditCompany() {
 
   return (
     <>
-      {company !== null ? (
+      {company !== undefined ? (
         <div className="h-fit w-fit m-auto mt-10 h-auto fixed top-0 left-0 right-0 z-50 items-center justify-center p-4 overflow-y-auto md:inset-0">
           <div className=" relative w-auto mx-auto h-full max-w-2xl md:h-auto lg:w-[100rem]   ">
             <form
