@@ -5,12 +5,18 @@ import { loginAdmin } from "../redux/slice/adminSlice";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
+  
+  const handleFillInputs = () => {
+    setInputEmail("admin@hotmail.com");
+    setInputPassword("123");
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -31,6 +37,8 @@ function Login() {
       })
     );
     navigate("/");
+
+  
   };
   return (
     <section className="bg-gradient-to-r from-yellow-300 to-yellow-500">
@@ -124,6 +132,16 @@ function Login() {
                 >
                   Forgot password?
                 </Link>
+              </div>
+              <div className="flex justify-center text-sm font-medium">
+                <button
+                  className="px-4 py-2 rounded-md text-white bg-blue-500 md:hover:bg-blue-600 focus:bg-blue-600 transition-colors"
+                  type="button"
+                  onClick={handleFillInputs}
+                >
+                  <FontAwesomeIcon icon={faPencilAlt} className="mr-2" />
+                  Fill Inputs
+                </button>
               </div>
               <button
                 type="submit"
