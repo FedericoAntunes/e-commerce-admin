@@ -18,12 +18,12 @@ function Login() {
     setInputPassword("123");
   };
 
-  async function handleRunSeeders(event) {
+  /*async function handleRunSeeders(event) {
     event.preventDefault();
 
     await apiCall(`/seeders`, "get");
     return "seeders!";
-  }
+  }*/
 
   const handleSubmit = async (event) => {
     event.preventDefault();
