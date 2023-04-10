@@ -3,6 +3,8 @@ import apiCall from "./api/api";
 import { useDispatch } from "react-redux";
 import { loginAdmin } from "../redux/slice/adminSlice";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 
 function Login() {
   const navigate = useNavigate();
@@ -48,6 +50,19 @@ function Login() {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
               Sign in to your admin account
             </h1>
+            <div className="flex justify-end text-sm font-medium">
+              <Link
+                to="https://no-hunger-food.vercel.app"
+                className="text-green-500 hover:text-green-700 focus:text-green-700 hover:underline transform hover:scale-110 focus:scale-110 transition-all"
+              >
+                <FontAwesomeIcon
+                  icon={faUtensils}
+                  className="text-green-500 mr-2"
+                />
+                No Hunger
+              </Link>
+            </div>
+
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
