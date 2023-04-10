@@ -170,8 +170,8 @@ function EditCompany() {
           </div>
         </div>
       ) : (
-        <div className="mt-60 bg-white">
-          <SpinnerLoader />
+        <div className="mt-60">
+          <SpinnerLoader className="bg-white" />
         </div>
       )}
       <div className="fixed inset-0 z-40 bg-gray-200"></div>
