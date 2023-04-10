@@ -5,9 +5,10 @@ import { useSelector } from "react-redux";
 import Header from "./partials/Header/Header";
 import { Link } from "react-router-dom";
 import ScrollToTop from "./partials/ScrollToTop";
+import SpinnerLoader from "./partials/loaders/SpinnerLoader";
 
 export default function ProductPanel() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(null);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [actualProductId, setActualProductId] = useState({});
   const admin = useSelector((state) => state.user);
@@ -31,12 +32,12 @@ export default function ProductPanel() {
   return (
     <>
       <Header />
-      {products && (
+      {products ? (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-16">
-          <div className="flex justify-end m-10">
+          <div className="flex justify-end my-10 m-6">
             <Link
               to="/create-product"
-              className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+              className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2"
             >
               Add Product
             </Link>
@@ -165,6 +166,10 @@ export default function ProductPanel() {
               })}
             </tbody>
           </table>
+        </div>
+      ) : (
+        <div className="mt-60">
+          <SpinnerLoader />
         </div>
       )}
       <ScrollToTop />
