@@ -143,6 +143,7 @@ export default function Home() {
         </div>
         <OrderTable />
       </div>
+
       <ScrollToTop />
     </>
   );

@@ -29,7 +29,7 @@ function OrderTable() {
     <>
       <div className="my-10 relative overflow-x-auto shadow-md sm:rounded-lg w-full">
         <h1>Latest orders</h1>
-        <div onClick={notify} className="m-auto py-4 bg-white w-fit">
+        <div onClick={notify} className="m-auto py-4 w-fit">
           <label htmlFor="table-search" className="sr-only">
             Search
           </label>
@@ -61,7 +61,7 @@ function OrderTable() {
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-gray-200">
             <tr>
-              <th scope="col" className="pr-6 py-3 text-center">
+              <th scope="col" className="px-6 py-3 text-center">
                 Satus
               </th>
               <th scope="col" className="px-6 py-3 text-center">

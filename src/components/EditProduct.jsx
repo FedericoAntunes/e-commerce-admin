@@ -69,7 +69,7 @@ function EditProduct() {
       }
     );
     if (response === "Product name already in use.") {
-      return toast.warn("Product name already in use.", {
+      return toast.warn("Product title already in use.", {
         position: "bottom-right",
       });
     }
