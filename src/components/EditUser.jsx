@@ -44,11 +44,19 @@ function EditUser() {
       Authorization: `Bearer ${admin.token}`,
       "Content-Type": "multipart/form-data",
     });
+
+    if (response === "Fill all the fields.") {
+      return toast.warn("Fill all the fields.", {
+        position: "bottom-right",
+      });
+    }
+
     if (response === "Unavailable username") {
       return toast.warn("Unavailable username.", {
         position: "bottom-right",
       });
     }
+
     if (response === "Unavailable user email") {
       return toast.warn("Unavailable user email.", {
         position: "bottom-right",

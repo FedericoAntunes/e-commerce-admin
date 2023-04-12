@@ -69,6 +69,11 @@ function EditProduct() {
         "Content-Type": "multipart/form-data",
       }
     );
+    if (response === "Fill all the fields.") {
+      return toast.warn("Fill all needed fields (description is not needed).", {
+        position: "bottom-right",
+      });
+    }
     if (response === "Product name already in use.") {
       return toast.warn("Product title already in use.", {
         position: "bottom-right",

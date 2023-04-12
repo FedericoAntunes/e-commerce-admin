@@ -50,6 +50,12 @@ function EditCompany() {
         "Content-Type": "multipart/form-data",
       }
     );
+    if (response === "Company needs a name.") {
+      return toast.warn("Company needs a name.", {
+        position: "bottom-right",
+      });
+    }
+
     if (response === "Unavailable comapany name") {
       return toast.warn("Unavailable comapany name.", {
         position: "bottom-right",
