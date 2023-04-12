@@ -1,5 +1,7 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
 import UserPanel from "./components/UserPanel";
 import Home from "./components/Home";
 import ProductPanel from "./components/ProductPanel";
@@ -40,6 +42,7 @@ function App() {
         </Route>
         <Route path="*" element={<Error404 />} />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

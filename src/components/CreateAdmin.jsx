@@ -188,7 +188,6 @@ function CreateAdmin() {
               >
                 Save all
               </button>
-              <ToastContainer />
             </div>
           </form>
         </div>

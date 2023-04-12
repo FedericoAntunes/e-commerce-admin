@@ -152,7 +152,6 @@ function CreateCompany() {
               >
                 Save all
               </button>
-              <ToastContainer />
             </div>
           </form>
         </div>

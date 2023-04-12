@@ -164,7 +164,6 @@ function EditUser() {
                   >
                     Save all
                   </button>
-                  <ToastContainer />
                 </div>
               </form>
             </div>

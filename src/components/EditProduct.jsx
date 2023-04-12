@@ -263,7 +263,6 @@ function EditProduct() {
                   >
                     Save all
                   </button>
-                  <ToastContainer />
                 </div>
               </form>
             </div>

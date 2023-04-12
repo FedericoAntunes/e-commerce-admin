@@ -167,7 +167,6 @@ function EditCompany() {
                   >
                     Save all
                   </button>
-                  <ToastContainer />
                 </div>
               </form>
             </div>

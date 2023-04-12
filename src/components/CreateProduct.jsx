@@ -290,7 +290,6 @@ function CreateProduct() {
               >
                 Save all
               </button>
-              <ToastContainer />
             </div>
           </form>
         </div>
