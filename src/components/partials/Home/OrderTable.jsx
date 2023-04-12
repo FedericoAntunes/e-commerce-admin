@@ -27,8 +27,8 @@ function OrderTable() {
 
   return (
     <>
-      <div className="my-10 relative overflow-x-auto shadow-md sm:rounded-lg w-full">
-        <h1>Latest orders</h1>
+      <div className="my-10 relative overflow-x-auto shadow-md sm:rounded-lg w-full ">
+        <h1>Latest 5 orders</h1>
         <div onClick={notify} className="m-auto py-4 w-fit">
           <label htmlFor="table-search" className="sr-only">
             Search
@@ -82,41 +82,55 @@ function OrderTable() {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => {
-              return (
-                order && (
-                  <tr
-                    key={order.id}
-                    className="bg-white border-b hover:bg-gray-200"
-                  >
-                    <th
-                      scope="row"
-                      className="flex items-center justify-center px-6 py-4 text-gray-900 whitespace-nowrap "
+            {orders.map((order, index) => {
+              return index > 4
+                ? null
+                : order && (
+                    <tr
+                      key={order.id}
+                      className="bg-white border-b hover:bg-gray-200"
                     >
-                      <div key={order.id} className="pl-3">
-                        <div className="text-base font-semibold">
+                      <th scope="row" className="px-6 py-4 text-center">
+                        <div
+                          key={order.id}
+                          className="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded"
+                        >
                           {order.status}
                         </div>
-                      </div>
-                    </th>
-                    <td>
-                      <div className="font-normal text-gray-500 text-center">
-                        $ {order.total_price}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-gray-500 text-center">
-                      <p>
-                        {order.user.firstname} {order.user.lastname}
-                      </p>
-                    </td>
-                    <td className="px-6 py-4 text-center">
-                      {order.payment_method}
-                    </td>
-                    <td className="px-6 py-4 text-center">{order.createdAt}</td>
-                    <td className="px-6 py-4 text-center">{order.updatedAt}</td>
-                  </tr>
-                )
-              );
+                      </th>
+                      <td>
+                        <div className="font-normal text-gray-500 text-center">
+                          $ {order.total_price}
+                        </div>
+                      </td>
+                      <td className="flex items-center px-6 py-4 text-gray-500 text-center">
+                        <img
+                          className="w-10 h-10 rounded-full"
+                          src={
+                            order.user.avatar.substring(0, 4) === "http"
+                              ? order.user.avatar
+                              : process.env.REACT_APP_SERVER_DOMAIN +
+                                order.user.avatar
+                          }
+                          alt="user-avatar"
+                        />
+                        <div className="text-base font-semibold pl-3 py-auto">
+                          <p>
+                            {order.user.firstname} {order.user.lastname}
+                          </p>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-center">
+                        {order.payment_method}
+                      </td>
+                      <td className="px-6 py-4 text-center">
+                        {order.createdAt}
+                      </td>
+                      <td className="px-6 py-4 text-center">
+                        {order.updatedAt}
+                      </td>
+                    </tr>
+                  );
             })}
           </tbody>
         </table>

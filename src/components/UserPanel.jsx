@@ -66,7 +66,7 @@ function UserPanel() {
                     >
                       <th
                         scope="row"
-                        className="flex px-6 py-4 text-gray-900 whitespace-nowrap "
+                        className="flex items-center px-6 py-4 text-gray-900 text-center"
                       >
                         <img
                           className="w-10 h-10 rounded-full"
@@ -78,10 +78,13 @@ function UserPanel() {
                           }
                           alt="user-avatar"
                         />
-                        <div key={user.id} className="pl-3">
-                          <div className="text-base font-semibold">
+                        <div
+                          key={user.id}
+                          className="text-base font-semibold pl-3"
+                        >
+                          <p>
                             {user.firstname} {user.lastname}
-                          </div>
+                          </p>
                         </div>
                       </th>
                       <td>
