@@ -108,7 +108,7 @@ function CompanyPanel() {
                           </p>
                         )}
                       </td>
-                      <td className="px-6 py-4 text-left">
+                      <td className="px-6 py-4">
                         <Link
                           to={`/edit-company/${company.slug}`}
                           className="font-medium text-blue-600 hover:underline"
