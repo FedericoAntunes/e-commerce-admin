@@ -27,7 +27,7 @@ function OrderTable() {
 
   return (
     <>
-      <div className="m-10 w-full px-4 py-6 relative overflow-x-auto  bg-white border border-gray-200 rounded-lg shadow w-full ">
+      <div className="mt-10 mx-6 w-full px-4 py-6 relative overflow-x-auto  bg-white border border-gray-200 rounded-lg shadow w-full ">
         <h5 className="text-xl font-bold leading-none text-gray-900">
           Latest 5 orders
         </h5>
