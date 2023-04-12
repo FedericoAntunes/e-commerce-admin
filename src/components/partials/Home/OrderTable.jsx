@@ -24,7 +24,7 @@ function OrderTable() {
     getOrders();
     // eslint-disable-next-line
   }, []);
-  console.log(orders);
+
   return (
     <>
       <div className="my-10 relative overflow-x-auto shadow-md sm:rounded-lg w-full">
