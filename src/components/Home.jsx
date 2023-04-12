@@ -36,7 +36,7 @@ export default function Home() {
       <Header />
       {products ? (
         <div className="flex mt-16 bg-gray-100 mx-auto flex-wrap justify-center w-full overflow-x-auto">
-          <div className="md:contents columns-1 hidden">
+          <div className="columns-1 hidden md:inline">
             <GrandielChart />
             <BarChart />
           </div>
