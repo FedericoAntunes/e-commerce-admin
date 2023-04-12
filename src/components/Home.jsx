@@ -99,7 +99,7 @@ export default function Home() {
             <div className="m-4 w-full h-fit max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
               <div className="flex items-center justify-between mb-4">
                 <h5 className="text-xl font-bold leading-none text-gray-900">
-                  Last 5 products in offer
+                  Lastest 5 products in offer
                 </h5>
                 <Link
                   to="/product-panel"
