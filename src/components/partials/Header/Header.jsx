@@ -1,7 +1,7 @@
 import SideBar from "./SideBar";
 import { useSelector } from "react-redux";
 import { Dropdown, Avatar } from "flowbite-react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { logOutAdmin } from "../../../redux/slice/adminSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";

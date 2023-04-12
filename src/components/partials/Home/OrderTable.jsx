@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import apiCall from "../../api/api";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
 

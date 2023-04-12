@@ -1,7 +1,7 @@
 import { useState } from "react";
 import apiCall from "./api/api";
 import { useSelector } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 
 function CreateCompany() {
