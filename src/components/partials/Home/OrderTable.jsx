@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
 
 function OrderTable() {
-  const [oreders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]);
   const admin = useSelector((state) => state.user);
 
   const notify = () =>
@@ -24,7 +24,7 @@ function OrderTable() {
     getOrders();
     // eslint-disable-next-line
   }, []);
-
+  console.log(orders);
   return (
     <>
       <div className="my-10 relative overflow-x-auto shadow-md sm:rounded-lg w-full">
@@ -68,15 +68,21 @@ function OrderTable() {
                 Total Price
               </th>
               <th scope="col" className="px-6 py-3 text-center">
-                Address
+                User
               </th>
               <th scope="col" className="px-6 py-3 text-center">
                 Payment Method
               </th>
+              <th scope="col" className="px-6 py-3 text-center">
+                Created At
+              </th>
+              <th scope="col" className="px-6 py-3 text-center">
+                Updated At
+              </th>
             </tr>
           </thead>
           <tbody>
-            {oreders.map((order) => {
+            {orders.map((order) => {
               return (
                 order && (
                   <tr
@@ -99,14 +105,15 @@ function OrderTable() {
                       </div>
                     </td>
                     <td className="px-6 py-4 text-gray-500 text-center">
-                      <ul>
-                        <li>city: {order.address.city}</li>
-                        <li>address: {order.address.address}</li>{" "}
-                      </ul>
+                      <p>
+                        {order.user.firstname} {order.user.lastname}
+                      </p>
                     </td>
                     <td className="px-6 py-4 text-center">
                       {order.payment_method}
                     </td>
+                    <td className="px-6 py-4 text-center">{order.createdAt}</td>
+                    <td className="px-6 py-4 text-center">{order.updatedAt}</td>
                   </tr>
                 )
               );

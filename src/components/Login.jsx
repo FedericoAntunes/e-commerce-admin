@@ -46,8 +46,8 @@ function Login() {
     navigate("/");
   };
   return (
-    <section className="bg-gradient-to-r from-yellow-300 to-yellow-500">
-      <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen">
+    <section className="bg-[url('https://images-ext-2.discordapp.net/external/B-Q5yWCKhF1nxZrMrnfRo3NIfNEwWDplURKiwmDcx2E/%3Fauto%3Dcompress%26cs%3Dtinysrgb%26w%3D1260%26h%3D750%26dpr%3D1/https/images.pexels.com/photos/616401/pexels-photo-616401.jpeg')] bg-cover bg-no-repeat w-full md:min-h-screen">
+      <div className=" flex flex-col items-center justify-center px-6 py-8 mx-auto">
         <Link
           to="/about-us"
           className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
@@ -58,8 +58,8 @@ function Login() {
             alt="logo"
           />
         </Link>
-        <div className="sm:w-full bg-gray-100 rounded-lg shadow md:mt-0 lg:w-1/4 py-6 ">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+        <div className="w-full sm:w-[600px] bg-transparent backdrop-blur border border-gray backdrop-grayscale-[0.5]  shadow-xl rounded-lg md:mt-0 py-6">
+          <div className="p-6 pb-0 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
               Sign in to your admin account
             </h1>
@@ -131,6 +131,16 @@ function Login() {
                     </label>
                   </div>
                 </div>
+                <div className="flex justify-center text-sm font-medium">
+                  <button
+                    className="px-4 py-2 rounded-md text-white bg-blue-500 md:hover:bg-blue-600 focus:bg-blue-600 transition-colors"
+                    type="button"
+                    onClick={handleFillInputs}
+                  >
+                    <FontAwesomeIcon icon={faPencilAlt} className="mr-2" />
+                    Fill Inputs
+                  </button>
+                </div>
                 <Link
                   to="#"
                   className="text-sm font-medium text-blue-500 hover:underline"
@@ -138,16 +148,7 @@ function Login() {
                   Forgot password?
                 </Link>
               </div>
-              <div className="flex justify-center text-sm font-medium">
-                <button
-                  className="px-4 py-2 rounded-md text-white bg-blue-500 md:hover:bg-blue-600 focus:bg-blue-600 transition-colors"
-                  type="button"
-                  onClick={handleFillInputs}
-                >
-                  <FontAwesomeIcon icon={faPencilAlt} className="mr-2" />
-                  Fill Inputs
-                </button>
-              </div>
+
               {/*<div className="flex justify-center text-sm font-medium">
                 <button
                   className="px-4 py-2 rounded-md text-white bg-blue-500 md:hover:bg-blue-600 focus:bg-blue-600 transition-colors"
