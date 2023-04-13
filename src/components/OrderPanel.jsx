@@ -97,7 +97,7 @@ function OrderPanel() {
                             $ {order.total_price.toFixed(2)}
                           </div>
                         </td>
-                        <td className="flex items-center px-6 py-4 text-center">
+                        <td className="md:flex items-center px-6 py-4 text-center">
                           <img
                             className="w-10 h-10 rounded-full"
                             src={
@@ -108,7 +108,7 @@ function OrderPanel() {
                             }
                             alt="user-avatar"
                           />
-                          <div className="text-base pl-3 py-auto">
+                          <div className="text-base md:pl-3 py-auto">
                             <p className="font-semibold  leading-7 tracking-wide">
                               {order.user.firstname} {order.user.lastname}
                             </p>
