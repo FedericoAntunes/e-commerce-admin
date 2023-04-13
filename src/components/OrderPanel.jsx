@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import Header from "./partials/Header/Header";
 import ScrollToTop from "./partials/ScrollToTop";
 import SpinnerLoader from "./partials/loaders/SpinnerLoader";
+import format from "date-fns/format";
 
 function OrderPanel() {
   const [orders, setOrders] = useState(null);
@@ -34,25 +35,43 @@ function OrderPanel() {
       {orders ? (
         <>
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-16">
-            <table className="w-full text-sm text-left text-gray-500">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-200">
+            <table className="w-full text-sm text-left">
+              <thead className="text-black bg-gray-200 ">
                 <tr>
-                  <th scope="col" className="px-6 py-3 text-center">
-                    Satus
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-center font-bold leading-7 tracking-wide"
+                  >
+                    Status
                   </th>
-                  <th scope="col" className="px-6 py-3 text-center">
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-center font-bold leading-7 tracking-wide"
+                  >
                     Total Price
                   </th>
-                  <th scope="col" className="px-6 py-3 text-center">
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-center font-bold leading-7 tracking-wide"
+                  >
                     User
                   </th>
-                  <th scope="col" className="px-6 py-3 text-center">
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-center font-bold leading-7 tracking-wide"
+                  >
                     Payment Method
                   </th>
-                  <th scope="col" className="px-6 py-3 text-center">
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-center font-bold leading-7 tracking-wide"
+                  >
                     Created At
                   </th>
-                  <th scope="col" className="px-6 py-3 text-center">
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-center font-bold leading-7 tracking-wide"
+                  >
                     Updated At
                   </th>
                 </tr>
@@ -74,11 +93,11 @@ function OrderPanel() {
                           </div>
                         </th>
                         <td>
-                          <div className="font-normal text-gray-500 text-center">
-                            $ {order.total_price}
+                          <div className="font-semibold leading-7 tracking-wide text-center">
+                            $ {order.total_price.toFixed(2)}
                           </div>
                         </td>
-                        <td className="flex items-center px-6 py-4 text-gray-500 text-center">
+                        <td className="flex items-center px-6 py-4 text-center">
                           <img
                             className="w-10 h-10 rounded-full"
                             src={
@@ -89,20 +108,26 @@ function OrderPanel() {
                             }
                             alt="user-avatar"
                           />
-                          <div className="text-base font-semibold pl-3 py-auto">
-                            <p>
+                          <div className="text-base pl-3 py-auto">
+                            <p className="font-semibold  leading-7 tracking-wide">
                               {order.user.firstname} {order.user.lastname}
                             </p>
                           </div>
                         </td>
-                        <td className="px-6 py-4 text-center">
+                        <td className="px-6 py-4 text-center font-semibold leading-7 tracking-wide">
                           {order.payment_method}
                         </td>
-                        <td className="px-6 py-4 text-center">
-                          {order.createdAt}
+                        <td className="px-6 py-4 text-center font-semibold leading-7 tracking-wide">
+                          {format(
+                            new Date(order.createdAt),
+                            "MMMM d, yyyy h:mm aa"
+                          )}
                         </td>
-                        <td className="px-6 py-4 text-center">
-                          {order.updatedAt}
+                        <td className="px-6 py-4 text-center font-semibold leading-7 tracking-wide">
+                          {format(
+                            new Date(order.updatedAt),
+                            "MMMM d, yyyy h:mm aa"
+                          )}
                         </td>
                       </tr>
                     )

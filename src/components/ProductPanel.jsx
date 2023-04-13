@@ -42,34 +42,61 @@ export default function ProductPanel() {
               Add Product
             </Link>
           </div>
-          <table className="w-full text-sm text-left text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-200">
+          <table className="w-full text-sm text-left">
+            <thead className="text-black bg-gray-200">
               <tr>
-                <th scope="col" className="pl-20 pr-6 py-3 w-1/5">
+                <th
+                  scope="col"
+                  className="pl-20 pr-6 py-3 font-bold leading-7 tracking-wide w-1/5"
+                >
                   Name
                 </th>
-                <th scope="col" className="pl-6 pr-6 py-3">
+                <th
+                  scope="col"
+                  className="pl-6 pr-6 py-3 text-center font-bold leading-7 tracking-wide"
+                >
                   Logo
                 </th>
-                <th scope="col" className="pl-6 pr-6 py-3 text-center">
+                <th
+                  scope="col"
+                  className="pl-6 pr-6 py-3 text-center font-bold leading-7 tracking-wide "
+                >
                   Category
                 </th>
-                <th scope="col" className="px-6 py-3 w-1/3 text-center">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-center font-bold leading-7 tracking-wide w-1/3"
+                >
                   Description
                 </th>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-center font-bold leading-7 tracking-wide"
+                >
                   Company
                 </th>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-center font-bold leading-7 tracking-wide"
+                >
                   In offer
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-center font-bold leading-7 tracking-wide"
+                >
                   Stock
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-center font-bold leading-7 tracking-wide"
+                >
                   Price
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th
+                  scope="col"
+                  className="px-6 py-3  font-bold leading-7 tracking-wide"
+                >
                   Action
                 </th>
               </tr>
@@ -83,7 +110,7 @@ export default function ProductPanel() {
                       className="bg-white border-b hover:bg-gray-200"
                     >
                       <th scope="row" className="">
-                        <span className="flex text-base font-semibold text-gray-900">
+                        <div className="flex text-base ">
                           <img
                             className="w-10 h-10 rounded-full mx-2 my-auto"
                             src={
@@ -94,8 +121,10 @@ export default function ProductPanel() {
                             }
                             alt="product"
                           />
-                          <span className="my-auto px-2">{product.title}</span>
-                        </span>
+                          <span className="my-auto px-2 font-semibold leading-7 tracking-wide">
+                            {product.title}
+                          </span>
+                        </div>
                       </th>
                       <td>
                         <img
@@ -110,44 +139,52 @@ export default function ProductPanel() {
                         />
                       </td>
                       <td className="px-6 py-4 text-center">
-                        {product.category.name}
+                        <p className="font-semibold leading-7 tracking-wide">
+                          {product.category.name}
+                        </p>
                       </td>
-                      <td className="px-6 py-4 ">
+                      <td className="px-6 py-4 max-w-[500px]">
                         {product.description === "" ? (
-                          <p className="font-normal text-gray-500">
+                          <p className="font-semibold leading-7 tracking-wide">
                             No description.
                           </p>
                         ) : (
-                          <p className="font-normal text-gray-500">
+                          <p className=" font-semibold leading-7 tracking-wide truncate">
                             {product.description}
                           </p>
                         )}
                       </td>
                       <td className="px-6 py-4">
-                        <p className="font-normal text-gray-500 text-center">
+                        <p className="font-semibold leading-7 tracking-wide text-center">
                           {product.company.name}
                         </p>
                       </td>
                       {product.in_offer ? (
-                        <td className="px-6 py-4 text-center">Yes</td>
+                        <td className="px-6 py-4 text-center font-semibold leading-7 tracking-wide">
+                          Yes
+                        </td>
                       ) : (
-                        <td className="px-6 py-4 text-center">No</td>
+                        <td className="px-6 py-4 text-center font-semibold leading-7 tracking-wide">
+                          No
+                        </td>
                       )}
-                      <td className="px-6 py-4 text-center">{product.stock}</td>
-                      <td className="px-6 py-4 text-center">
+                      <td className="px-6 py-4 text-center font-semibold leading-7 tracking-wide">
+                        {product.stock}
+                      </td>
+                      <td className="px-6 py-4 text-center font-semibold leading-7 tracking-wide">
                         ${product.price}
                       </td>
                       <td className="px-6 py-4">
                         <Link
                           to={`/edit-product/${product.id}`}
-                          className="font-medium text-blue-600 hover:underline"
+                          className="font-medium text-blue-600 hover:underline text-left"
                         >
                           Edit product
                         </Link>
                         <button
                           onClick={() => handleOpenDeleteModal(product.id)}
                           type="button"
-                          className="font-medium text-red-600 hover:underline text-left mt-2"
+                          className="font-medium text-red-600 hover:underline text-left"
                         >
                           Delete product
                         </button>

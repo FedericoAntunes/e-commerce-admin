@@ -25,7 +25,7 @@ export default function Header() {
     <nav className="bg-white border-gray-200 dark:bg-gray-900 border-b fixed top-0 w-full z-40">
       <SideBar />
       <div className="flex flex-wrap items-center justify-between my-auto pr-6">
-        <div onClick={notify} className="m-auto py-4 w-fit">
+        <div onClick={notify} className="lg:m-auto ml-auto mx-auto py-4 w-fit">
           <label htmlFor="table-search" className="sr-only">
             Search
           </label>
@@ -33,7 +33,7 @@ export default function Header() {
           <div className="relative">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
-                className="w-5 h-5 text-gray-500"
+                className="w-5 h-5 text-gray-500 lg:inline hidden"
                 aria-hidden="true"
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -49,7 +49,7 @@ export default function Header() {
             <input
               type="text"
               id="table-search"
-              className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+              className="block p-2 lg:pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-50 lg:w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Company, user, admin or product."
             />
           </div>

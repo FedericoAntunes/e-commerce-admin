@@ -36,19 +36,31 @@ function AdminPanel() {
               Create Admin
             </Link>
           </div>
-          <table className="w-full text-sm text-left text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-200">
+          <table className="w-full text-sm text-left">
+            <thead className="bg-gray-200">
               <tr>
-                <th scope="col" className="pl-20 pr-6 py-3 text-left">
+                <th
+                  scope="col"
+                  className="font-bold leading-7 tracking-wide pl-20 pr-6 py-3 text-left"
+                >
                   User
                 </th>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th
+                  scope="col"
+                  className="font-bold leading-7 tracking-wide px-6 py-3 text-center"
+                >
                   Email
                 </th>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th
+                  scope="col"
+                  className="font-bold leading-7 tracking-wide px-6 py-3 text-center"
+                >
                   Username
                 </th>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th
+                  scope="col"
+                  className="font-bold leading-7 tracking-wide px-6 py-3 text-center"
+                >
                   Status
                 </th>
               </tr>
@@ -61,27 +73,26 @@ function AdminPanel() {
                       key={admin.id}
                       className="bg-white border-b hover:bg-gray-200"
                     >
-                      <th
-                        scope="row"
-                        className="flex px-6 py-4 text-gray-900 whitespace-nowrap "
-                      >
+                      <th scope="row" className="flex px-6 py-4">
                         <div key={admin.id} className="pl-3">
-                          <div className="text-base font-semibold">
-                            {admin.firstname} {admin.lastname}
+                          <div>
+                            <p className="text-base font-semibold leading-7 tracking-wide">
+                              {admin.firstname} {admin.lastname}
+                            </p>
                           </div>
                         </div>
                       </th>
                       <td>
-                        <div className="font-normal text-gray-500 text-center">
+                        <div className="font-semibold leading-7 tracking-wide text-center">
                           {admin.email}
                         </div>
                       </td>
-                      <td className="px-6 py-4 text-gray-500 text-center">
+                      <td className="px-6 py-4 font-semibold leading-7 tracking-wide text-center">
                         {admin.username}
                       </td>
                       <td className="px-6 py-4">
-                        <div className="flex items-center justify-center">
-                          <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 "></div>{" "}
+                        <div className="flex items-center justify-center font-semibold leading-7 tracking-wide">
+                          <div className="h-2.5 w-2.5 rounded-full bg-green-500 mr-2 "></div>
                           Online
                         </div>
                       </td>

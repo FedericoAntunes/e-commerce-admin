@@ -45,19 +45,31 @@ function CompanyPanel() {
               Add Company
             </Link>
           </div>
-          <table className="w-full text-sm text-left text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-200">
+          <table className="w-full text-sm text-left">
+            <thead className="text-black  bg-gray-200">
               <tr>
-                <th scope="col" className="pl-20 pr-6 py-3 w-1/5">
+                <th
+                  scope="col"
+                  className="font-bold leading-7 tracking-wide pl-20 pr-6 py-3 w-1/5"
+                >
                   Company
                 </th>
-                <th scope="col" className="pl-6 pr-6 py-3 text-center">
+                <th
+                  scope="col"
+                  className="font-bold leading-7 tracking-wide pl-6 pr-6 py-3 text-center"
+                >
                   Background
                 </th>
-                <th scope="col" className="px-6 py-3 text-center w-3/5">
+                <th
+                  scope="col"
+                  className="font-bold leading-7 tracking-wide px-6 py-3 text-center w-3/5"
+                >
                   Description
                 </th>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th
+                  scope="col"
+                  className="font-bold leading-7 tracking-wide px-6 py-3"
+                >
                   Action
                 </th>
               </tr>
@@ -71,7 +83,7 @@ function CompanyPanel() {
                       className="bg-white border-b hover:bg-gray-200"
                     >
                       <th scope="row" className="">
-                        <span className="flex text-base font-semibold text-gray-900">
+                        <div className="flex">
                           <img
                             className="w-10 h-10 rounded-full mx-2 my-auto"
                             src={
@@ -82,12 +94,16 @@ function CompanyPanel() {
                             }
                             alt="company"
                           />
-                          <span className="my-auto px-2">{company.name}</span>
-                        </span>
+                          <span className="my-auto px-2">
+                            <p className="font-semibold leading-7 tracking-wide text-base">
+                              {company.name}
+                            </p>
+                          </span>
+                        </div>
                       </th>
                       <td className="px-6 py-4">
                         <img
-                          className="w-16 h-16 mx-auto"
+                          className="w-16 h-16 mx-auto rounded-lg"
                           src={
                             company.background.substring(0, 4) === "http"
                               ? company.background
@@ -97,13 +113,13 @@ function CompanyPanel() {
                           alt="company"
                         />
                       </td>
-                      <td className="px-6 py-4">
+                      <td className="px-6 py-4 max-w-[500px]">
                         {company.description === "" ? (
-                          <p className="font-normal text-gray-500 text-left">
+                          <p className=" text-left font-semibold leading-7 tracking-wide">
                             No description.
                           </p>
                         ) : (
-                          <p className="font-normal text-gray-500 text-left">
+                          <p className=" text-left truncate font-semibold leading-7 tracking-wide">
                             {company.description}
                           </p>
                         )}
@@ -111,14 +127,14 @@ function CompanyPanel() {
                       <td className="px-6 py-4">
                         <Link
                           to={`/edit-company/${company.slug}`}
-                          className="font-medium text-blue-600 hover:underline"
+                          className="font-medium text-blue-600 hover:underline text-left"
                         >
                           Edit company
                         </Link>
                         <button
                           type="button"
                           onClick={() => handleOpenDeleteModal(company.id)}
-                          className="font-medium text-red-600 hover:underline mt-2"
+                          className="font-medium text-red-600 hover:underline mt-2 text-left"
                         >
                           Delete company
                         </button>
