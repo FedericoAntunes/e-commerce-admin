@@ -49,11 +49,11 @@ function CreateCompany() {
 
   return (
     <>
-      <div className="h-fit w-fit m-auto mt-10 h-auto fixed top-0 left-0 right-0 z-50 items-center justify-center p-4 overflow-y-auto md:inset-0">
+      <div className="w-fit h-fit mx-auto mt-10 flex items-center justify-center p-4">
         <div className=" relative w-auto mx-auto h-full max-w-2xl md:h-auto lg:w-[100rem]   ">
           <form
             onSubmit={handleCreateCompany}
-            className="relative bg-white rounded-lg shadow "
+            className="relative bg-white rounded-lg shadow z-50"
           >
             <div className="flex items-start justify-between p-4 border-b rounded-t">
               <h3 className="text-xl font-semibold text-gray-900">
@@ -156,7 +156,7 @@ function CreateCompany() {
           </form>
         </div>
       </div>
-      <div className="fixed inset-0 z-40 bg-gray-200"></div>
+      <div className="bg-gray-200 fixed inset-0"></div>
     </>
   );
 }
