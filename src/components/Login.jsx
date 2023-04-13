@@ -18,12 +18,12 @@ function Login() {
     setInputPassword("123");
   };
 
-  /*async function handleRunSeeders(event) {
+  async function handleRunSeeders(event) {
     event.preventDefault();
 
     await apiCall(`/seeders`, "get");
-    return "seeders!";
-  }*/
+    return console.log("seeders!");
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -149,16 +149,18 @@ function Login() {
                 </Link>
               </div>
 
-              {/*<div className="flex justify-center text-sm font-medium">
-                <button
-                  className="px-4 py-2 rounded-md text-white bg-blue-500 md:hover:bg-blue-600 focus:bg-blue-600 transition-colors"
-                  type="button"
-                  onClick={handleRunSeeders}
-                >
-                  <FontAwesomeIcon icon={faPencilAlt} className="mr-2" />
-                  Run Seeders
-                </button>
-  </div>*/}
+              {
+                <div className="flex justify-center text-sm font-medium">
+                  <button
+                    className="px-4 py-2 rounded-md text-white bg-blue-500 md:hover:bg-blue-600 focus:bg-blue-600 transition-colors"
+                    type="button"
+                    onClick={handleRunSeeders}
+                  >
+                    <FontAwesomeIcon icon={faPencilAlt} className="mr-2" />
+                    Run Seeders
+                  </button>
+                </div>
+              }
               <button
                 type="submit"
                 className="w-full text-gray-200	bg-yellow-500 hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
