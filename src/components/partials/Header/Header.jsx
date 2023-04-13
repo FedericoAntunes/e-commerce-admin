@@ -49,7 +49,7 @@ export default function Header() {
             <input
               type="text"
               id="table-search"
-              className="block p-2 lg:pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-50 lg:w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+              className="block p-2 lg:pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-50 md:w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Company, user, admin or product."
             />
           </div>
