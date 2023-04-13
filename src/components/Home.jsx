@@ -42,7 +42,7 @@ export default function Home() {
               <BarChart />
             </div>
             <div className="columns-1 w-full">
-              <div className="m-4 lg:max-w-lg p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
+              <div className="m-4 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
                 <div className="flex items-center justify-between mb-4">
                   <h5 className="text-xl font-bold leading-none text-gray-900">
                     Lower stock products{`(>5)`}
@@ -97,7 +97,7 @@ export default function Home() {
                   })}
                 </div>
               </div>
-              <div className="m-4 h-fit lg:max-w-lg p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
+              <div className="m-4 h-fit p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
                 <div className="flex items-center justify-between mb-4">
                   <h5 className="text-xl font-bold leading-none text-gray-900">
                     Lastest 5 products in offer
