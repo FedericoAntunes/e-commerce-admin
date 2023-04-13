@@ -58,23 +58,18 @@ export default class Example extends PureComponent {
 
   render() {
     return (
-      <ResponsiveContainer
-        width="100%"
-        height="50%"
-        className="bg-white border border-gray-200 rounded-lg shadow mt-4"
+      <BarChart
+        className="bg-white border border-gray-200 rounded-lg shadow m-4"
+        width={800}
+        height={500}
+        data={data}
+        margin={{ top: 20, right: 100, left: 50, bottom: 20 }}
       >
-        <BarChart
-          width={1000}
-          height={500}
-          data={data}
-          margin={{ top: 20, right: 100, left: 50, bottom: 20 }}
-        >
-          <Bar dataKey="uv" fill="#8884d8" name="Visitors per month" />
-          <Legend verticalAlign="top" height={36} />
-          <XAxis dataKey="name" />
-          <YAxis dataKey="uv" />
-        </BarChart>
-      </ResponsiveContainer>
+        <Bar dataKey="uv" fill="#8884d8" name="Visitors per month" />
+        <Legend verticalAlign="top" height={36} />
+        <XAxis dataKey="name" />
+        <YAxis dataKey="uv" />
+      </BarChart>
     );
   }
 }
