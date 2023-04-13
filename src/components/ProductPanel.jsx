@@ -128,7 +128,7 @@ export default function ProductPanel() {
                       </th>
                       <td>
                         <img
-                          className="w-16 h-16 mx-auto"
+                          className="w-16 h-16 mx-auto rounded-lg"
                           src={
                             product.logo.substring(0, 4) === "http"
                               ? product.logo
