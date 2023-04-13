@@ -53,7 +53,7 @@ export default function Header() {
               placeholder="Company, user, admin or product."
             />
           </div>
-        </div>{" "}
+        </div>
         <div className="flex items-center md:order-2">
           {admin ? (
             <Dropdown

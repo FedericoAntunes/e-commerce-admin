@@ -22,11 +22,11 @@ export default function SideBar() {
       <div className="relative z-10 opacity-90 text-start pl-4 rounded">
         <button
           onClick={() => handleSideBar()}
-          className=" fixed w-fit flex items-center p-2 text-gray-900 rounded-lg pt-6"
+          className=" fixed w-fit flex items-center md:px-2 md:pb-2 text-gray-900 rounded-lg pt-6"
         >
           <svg
             aria-hidden="true"
-            className="w-6 h-6 text-gray-500 transition duration-75"
+            className="w-6 h-6 text-gray-500 transition duration-75 hidden md:inline"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ export default function SideBar() {
             <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
             <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
           </svg>
-          <span className="ml-3 text-gray-500 ">🡲</span>
+          <span className="md:ml-3 text-gray-500 ">🡲</span>
         </button>
       </div>
       <>
