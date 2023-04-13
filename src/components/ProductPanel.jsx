@@ -104,7 +104,7 @@ export default function ProductPanel() {
             <tbody>
               {products.map((product) => {
                 return (
-                  product && (
+                  products && (
                     <tr
                       key={product.id}
                       className="bg-white border-b hover:bg-gray-200"
