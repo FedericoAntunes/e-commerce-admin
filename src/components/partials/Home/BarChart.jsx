@@ -53,7 +53,7 @@ export default class Example extends PureComponent {
     return (
       <BarChart
         className="bg-white border border-gray-200 rounded-lg shadow m-4"
-        width={800}
+        width={1000}
         height={500}
         data={data}
         margin={{ top: 20, right: 100, left: 50, bottom: 20 }}
