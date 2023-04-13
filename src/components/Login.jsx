@@ -133,7 +133,7 @@ function Login() {
                 </div>
                 <div className="flex justify-center text-sm font-medium">
                   <button
-                    className="px-4 py-2 rounded-md text-white bg-blue-500 md:hover:bg-blue-600 focus:bg-blue-600 transition-colors"
+                    className="m-2 md:px-4 md:py-2 rounded-md text-white bg-green-500 md:hover:bg-green-600 focus:bg-green-600 transition-colors"
                     type="button"
                     onClick={handleFillInputs}
                   >
@@ -143,7 +143,7 @@ function Login() {
                 </div>
                 <Link
                   to="#"
-                  className="text-sm font-medium text-blue-500 hover:underline"
+                  className="text-base font-medium text-green-600 md:hover:underline"
                 >
                   Forgot password?
                 </Link>

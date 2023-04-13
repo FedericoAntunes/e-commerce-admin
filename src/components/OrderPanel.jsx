@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import apiCall from "./api/api";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector } from "react-redux";
 import Header from "./partials/Header/Header";
@@ -11,11 +10,6 @@ import format from "date-fns/format";
 function OrderPanel() {
   const [orders, setOrders] = useState(null);
   const admin = useSelector((state) => state.user);
-
-  const notify = () =>
-    toast.warn("This feature is not included yet.", {
-      position: "bottom-right",
-    });
 
   const getOrders = async () => {
     const response = await apiCall("/orders", "get", null, {
