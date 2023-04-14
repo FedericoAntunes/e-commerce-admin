@@ -62,11 +62,7 @@ export default function Header() {
               label={
                 <Avatar
                   alt="User settings"
-                  img={
-                    admin.avatar.substring(0, 4) === "http"
-                      ? admin.avatar
-                      : process.env.REACT_APP_SERVER_DOMAIN + admin.avatar
-                  }
+                  img={process.env.REACT_APP_IMAGE_BASEURL + admin.avatar}
                   rounded={true}
                 />
               }

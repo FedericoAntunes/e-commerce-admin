@@ -88,7 +88,7 @@ function UserPanel() {
                           src={
                             user.avatar.substring(0, 4) === "http"
                               ? user.avatar
-                              : process.env.REACT_APP_SERVER_DOMAIN +
+                              : process.env.REACT_APP_IMAGE_BASEURL +
                                 user.avatar
                           }
                           alt="user-avatar"

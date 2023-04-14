@@ -66,7 +66,7 @@ export default function Home() {
                                 src={
                                   product.image.substring(0, 4) === "http"
                                     ? product.image
-                                    : process.env.REACT_APP_SERVER_DOMAIN +
+                                    : process.env.REACT_APP_IMAGE_BASEURL +
                                       product.image
                                 }
                                 alt="product"
@@ -122,7 +122,7 @@ export default function Home() {
                                   src={
                                     product.image.substring(0, 4) === "http"
                                       ? product.image
-                                      : process.env.REACT_APP_SERVER_DOMAIN +
+                                      : process.env.REACT_APP_IMAGE_BASEURL +
                                         product.image
                                   }
                                   alt="product"

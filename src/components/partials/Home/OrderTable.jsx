@@ -130,7 +130,7 @@ function OrderTable() {
                           src={
                             order.user.avatar.substring(0, 4) === "http"
                               ? order.user.avatar
-                              : process.env.REACT_APP_SERVER_DOMAIN +
+                              : process.env.REACT_APP_IMAGE_BASEURL +
                                 order.user.avatar
                           }
                           alt="user-avatar"

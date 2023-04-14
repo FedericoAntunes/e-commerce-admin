@@ -248,21 +248,6 @@ function CreateProduct() {
                     }}
                   />
                 </div>
-                <div className="col-span-6 sm:col-span-3">
-                  <label
-                    htmlFor="product-logo"
-                    className="block mb-2 text-sm font-medium text-gray-900"
-                  >
-                    Logo
-                  </label>
-                  <input
-                    id="product-logo"
-                    type="file"
-                    name="product-logo"
-                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5"
-                    onChange={(event) => setLogo(event.target.files[0])}
-                  />
-                </div>
               </div>
             </div>
             <div className="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b">

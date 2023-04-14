@@ -51,12 +51,12 @@ export default function ProductPanel() {
                 >
                   Name
                 </th>
-                <th
+                {/*  <th
                   scope="col"
                   className="pl-6 pr-6 py-3 text-center font-bold leading-7 tracking-wide"
                 >
                   Logo
-                </th>
+                </th> */}
                 <th
                   scope="col"
                   className="pl-6 pr-6 py-3 text-center font-bold leading-7 tracking-wide "
@@ -116,7 +116,7 @@ export default function ProductPanel() {
                             src={
                               product.image.substring(0, 4) === "http"
                                 ? product.image
-                                : process.env.REACT_APP_SERVER_DOMAIN +
+                                : process.env.REACT_APP_IMAGE_BASEURL +
                                   product.image
                             }
                             alt="product"
@@ -126,8 +126,8 @@ export default function ProductPanel() {
                           </span>
                         </div>
                       </th>
-                      <td>
-                        <img
+                      {/*  <td>
+                             <img
                           className="w-16 h-16 mx-auto rounded-lg"
                           src={
                             product.logo.substring(0, 4) === "http"
@@ -136,8 +136,8 @@ export default function ProductPanel() {
                                 product.logo
                           }
                           alt="product"
-                        />
-                      </td>
+                        /> *
+                      </td> */}
                       <td className="px-6 py-4 text-center">
                         <p className="font-semibold leading-7 tracking-wide">
                           {product.category.name}
