@@ -89,8 +89,7 @@ function CompanyPanel() {
                             src={
                               company.logo.substring(0, 4) === "http"
                                 ? company.logo
-                                : process.env.REACT_APP_IMAGE_BASEURL +
-                                  company.logo
+                                : process.env.REACT_APP_IMAGE_BASEURL + company.logo
                             }
                             alt="company"
                           />
