@@ -114,31 +114,39 @@ function UserPanel() {
                         </div>
                       </td>
                       <td className="px-6 py-4">
-                        <div>
-                          <Link
-                            to={`/edit-user/${user.id}`}
-                            className="font-medium text-blue-600 hover:underline text-left"
-                          >
-                            Edit user
-                          </Link>
-                        </div>
-                        <div className="pt-2">
-                          <button
-                            type="button"
-                            onClick={() => handleOpenDeleteModal(user.id)}
-                            className="font-medium text-red-600 hover:underline text-left"
-                          >
-                            Delete user
-                          </button>
-                          <DeleteUserModal
-                            user={user}
-                            actualUserId={actualUserId}
-                            isDeleteModalOpen={isDeleteModalOpen}
-                            setIsDeleteModalOpen={setIsDeleteModalOpen}
-                            users={users}
-                            setUsers={setUsers}
-                          />
-                        </div>
+                        {user.email === "user@hotmail.com" ? (
+                          <p className="font-medium text-gray-600 hover:underline text-left">
+                            You can not delete or edit the testing user.
+                          </p>
+                        ) : (
+                          <>
+                            <div>
+                              <Link
+                                to={`/edit-user/${user.id}`}
+                                className="font-medium text-blue-600 hover:underline text-left"
+                              >
+                                Edit user
+                              </Link>
+                            </div>
+                            <div className="pt-2">
+                              <button
+                                type="button"
+                                onClick={() => handleOpenDeleteModal(user.id)}
+                                className="font-medium text-red-600 hover:underline text-left"
+                              >
+                                Delete user
+                              </button>
+                              <DeleteUserModal
+                                user={user}
+                                actualUserId={actualUserId}
+                                isDeleteModalOpen={isDeleteModalOpen}
+                                setIsDeleteModalOpen={setIsDeleteModalOpen}
+                                users={users}
+                                setUsers={setUsers}
+                              />
+                            </div>
+                          </>
+                        )}
                       </td>
                     </tr>
                   )

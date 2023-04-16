@@ -15,6 +15,9 @@ function DeleteUserModal({
     await apiCall(`/users/${userId}`, "delete", null, {
       Authorization: `Bearer ${admin.token}`,
     });
+
+    if (Number(userId) === 1) return setIsDeleteModalOpen(!isDeleteModalOpen);
+
     setUsers(users.filter((item) => item.id !== user.id));
     return setIsDeleteModalOpen(!isDeleteModalOpen);
   }
