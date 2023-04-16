@@ -41,7 +41,7 @@ export default function Home() {
               <GrandielChart />
               <BarChart />
             </div>
-            <div className="columns-1">
+            <div className="columns-1 mx-auto">
               <div className="m-4 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8">
                 <div className="flex items-center justify-between mb-4">
                   <h5 className="text-xl font-bold leading-none text-gray-900">
