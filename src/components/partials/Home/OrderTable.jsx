@@ -114,7 +114,7 @@ function OrderTable() {
                       <th scope="row" className="px-6 py-4 text-center">
                         <div
                           key={order.id}
-                          className="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded"
+                          className="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 py-0.5 rounded"
                         >
                           {order.status}
                         </div>
@@ -124,22 +124,22 @@ function OrderTable() {
                           $ {order.total_price.toFixed(2)}
                         </div>
                       </td>
-                      <td className="flex items-center px-6 py-4 text-center">
-                        <img
-                          className="w-10 h-10 rounded-full"
-                          src={
-                            order.user.avatar.substring(0, 4) === "http"
-                              ? order.user.avatar
-                              : process.env.REACT_APP_IMAGE_BASEURL +
-                                order.user.avatar
-                          }
-                          alt="user-avatar"
-                        />
-                        <div className=" pl-3 py-auto">
-                          <p className="font-semibold leading-7 tracking-wide">
+                      <td className="px-6 py-4 text-left">
+                        <span className="flex my-auto justify-center">
+                          <img
+                            className="w-10 h-10 rounded-full"
+                            src={
+                              order.user.avatar.substring(0, 4) === "http"
+                                ? order.user.avatar
+                                : process.env.REACT_APP_IMAGE_BASEURL +
+                                  order.user.avatar
+                            }
+                            alt="user-avatar"
+                          />
+                          <p className="font-semibold leading-7 tracking-wide my-auto pl-3">
                             {order.user.firstname} {order.user.lastname}
                           </p>
-                        </div>
+                        </span>
                       </td>
                       <td className="px-6 py-4 font-semibold leading-7 tracking-wide text-center">
                         {order.payment_method}
