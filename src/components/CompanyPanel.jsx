@@ -89,7 +89,8 @@ function CompanyPanel() {
                             src={
                               company.logo.substring(0, 4) === "http"
                                 ? company.logo
-                                : process.env.REACT_APP_IMAGE_BASEURL + company.logo
+                                : process.env.REACT_APP_IMAGE_BASEURL +
+                                  company.logo
                             }
                             alt="company"
                           />
@@ -124,19 +125,23 @@ function CompanyPanel() {
                         )}
                       </td>
                       <td className="px-6 py-4">
-                        <Link
-                          to={`/edit-company/${company.slug}`}
-                          className="font-medium text-blue-600 hover:underline text-left"
-                        >
-                          Edit company
-                        </Link>
-                        <button
-                          type="button"
-                          onClick={() => handleOpenDeleteModal(company.id)}
-                          className="font-medium text-red-600 hover:underline mt-2 text-left"
-                        >
-                          Delete company
-                        </button>
+                        <div>
+                          <Link
+                            to={`/edit-company/${company.slug}`}
+                            className="font-medium text-blue-600 hover:underline text-left"
+                          >
+                            Edit company
+                          </Link>
+                        </div>
+                        <div>
+                          <button
+                            type="button"
+                            onClick={() => handleOpenDeleteModal(company.id)}
+                            className="font-medium text-red-600 hover:underline mt-2 text-left"
+                          >
+                            Delete company
+                          </button>
+                        </div>
                         <DeleteCompanyModal
                           company={company}
                           actualCompanyId={actualCompanyId}
