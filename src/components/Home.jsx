@@ -37,7 +37,7 @@ export default function Home() {
       {products ? (
         <div className="bg-gray-100 w-full h-full">
           <div className="flex mt-16 mx-auto w-full overflow-x-auto">
-            <div className="columns-1 hidden lg:inline">
+            <div className="columns-1 hidden lg:inline mx-auto">
               <GrandielChart />
               <BarChart />
             </div>
