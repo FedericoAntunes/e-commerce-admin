@@ -36,7 +36,7 @@ export default function Home() {
       <Header />
       {products ? (
         <div className="bg-gray-100 w-full h-full">
-          <div className="flex mt-16 mx-auto w-full overflow-x-auto">
+          <div className="flex mt-16 mx-auto w-full overflow-x-auto flex-wrap">
             <div className="columns-1 hidden lg:inline mx-auto">
               <GrandielChart />
               <BarChart />
